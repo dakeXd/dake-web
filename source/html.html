@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang = "es-ES">
+<head>
+    <meta charset="utf-8">
+    <meta name = "viewport" content="width=device-width, initial-scale=1">
+    <title>HTML Tutorial</title>
+</head>
+<body>
+    <p><i>Volver a la pagina de <a href="index.html">inicio</a></i></p>
+    <hr>
+    <h1>Tutorial HTML</h1>
+    <h2>Estructura del documento</h2>
+    <p>Una página HTML viene definida por una etiqueta especial, <b>&lt;!DOCTYPE html></b> que indica que se estara usando html5. Despues de esta linea, todo el documento 
+        tiene que ir encerrado entre las etiquetas <b>&lt;html></b> y <b>&lt;/html></b>.
+    </p>
+    <p>El documento viene diferenciados en dos apartados principales:</p>
+    <h3>head</h3>
+    <p>Definido por las etiquetas <b>&lt;head></b> y <b>&lt;/head></b> Aqui se contendra metadata de la pagina, se cargaran los recursos y se otorgara informacion sobre esta. Uno de los atributos
+        más usados aqui es <b>&lt;title></b>, que contendra el titulo de la página, el cual se mostrara en la pestaña del navegador,
+    </p>
+    <h3>body</h3>
+    <p>
+        Contiene toda la información que se mostrara en la página web, texto, imagenes, links... Toda la información que ves ahora mismo esta escrita en el body. Este viene definido por las
+        etiquetas <b>&lt;body></b> y <b>&lt;/body></b>. Todos los elementos vienen definidos por etiquetas. Si un elemento contiene a otro, esto se conococe como anidamiento o <i>nesting</i>. 
+        El elemento exterior sera conocido como padre y el interior como hijo. Así, todos los elementos de una pagina seran hijos del body.
+    </p>
+    <p>Así quedaria la estructura base de un documento:</p>
+    <p style="font-family: 'Times New Roman'">
+        &lt;!DOCTYPE html><br>
+        &lt;html><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;head><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;/head><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;body><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;/body><br>
+        &lt;/html><br>
+    </p>
+    <h2>Diferentes elementos</h2>
+    <h3>Elementos básicos</h3>
+    <ul>
+        <li>
+            <b>title</b>:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Define el titulo de la pagina que se vera en la pestaña del navegador. Solo uno, en la cabezera. El usado en  esta página es <i style="font-family: 'Times New Roman'">&lt;title>HTML Tutorial&lt;/title>.</i>
+        </li>
+        <li>
+            <b>h1, h2, h3, h4, h5, h6</b>:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Headers, sirven para organizar la información de la página con un añadido de hacerlo visualmente. Van de mayor a menor, siendo h1 el más importante y grande y h6 el menos y más pequeño.
+             Un ejemplo de uso en está página es <i style="font-family: 'Times New Roman'">&lt;h1>Tutorial HTML&lt;/h1>.</i> o <i style="font-family: 'Times New Roman'">&lt;h2>Estructura del documento&lt;/h2>.</i>, empleados al principio de la página.
+        </li>
+        <li>
+            <b>p</b>:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Párrafos, contienen la mayoria de información de la página. Un uso de estos en la página es todo lo que aparece debajo de la cabezera "body": 
+            <i style="font-family: 'Times New Roman'">&lt;p>Contiene toda la información que se mostrara en la página web, te...&lt;/p>.</i>
+        </li>
+        <li>
+            <b>a</b>:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Hipervinculos, funcionan como un parrafo, pero al clickar sobre ellos llevaran al usuario a otra página web, ya sea en la misma pestaña o en una nueva. Pueden estar anidados en otros elementos. Como ejemplo, 
+            este <a href="https://www.google.es" target="_blank">hipervinculo</a> te llevara a la página de google en una pestaña nueva. El hipervinculo del primer parrafo de esta página te lleva de vuelta la página de inicio a la web en la misma pestaña.
+            Para funcionar usan un atributo incluido dentro de la etiqueta de apertura, usaran <b>href="link"</b> para referenciar a la página y <b>target="tipo"</b> para alterar el funcionamiento del link. Si como tipo ponemos <i>_blank</i> el vinculo se abrira en una pestaña nueva,
+            por otro lado, si no se pone nada o se usa <i>_self</i> el vinculo se abrira en la misma pestaña. El codigo del hipervinculo para ir a google es: <i style="font-family: 'Times New Roman'">&lt;a href="https://www.google.es" target="_blank">hipervinculo&lt;/a>.</i>
+        </li>
+        <li>
+            <b>img</b>:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Imagen, muestra una imagen en el documento como la siguiente:<br> <img src="https://via.placeholder.com/500x50" alt="imagen de ejemplo"><br>
+            Tenemos que especificar la url de la imagen, ya sea dentro del dispositivo como en la web, con el atributo <b>src="source"</b>. Podemos usar el atributo <b>alt="text"</b> para poner un texto alternativo en caso de que no se pueda ver la imagen. El codigo usado para la 
+            imagen anterior es <i style="font-family: 'Times New Roman'">&lt;img src="https://via.placeholder.com/500x50" alt="imagen de ejemplo"></i>. Como se puede observar, no es necesario una etiqueta de cierre.
+        </li>
+        <li>
+            <b>br</b>:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Salto de linea. Permite introducir un salto de linea en cualquier sitio del body, incluido dentro de un elemento, como <br> aqui. su código es <i style="font-family: 'Times New Roman'">&lt;br></i>, como se ve, no necesita etiqueta de cierre ya que no puede contener nada.
+        </li>
+        <li>
+            <b>hr</b>:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Separador horizontal. Permite separar partes del body o de cualquier otro elemento, mediante una linea horizontal, como <hr> aqui. Su código es <i style="font-family: 'Times New Roman'">&lt;hr></i>, y como <b>br</b>, no necesita etiqueta de cierre ya que no puede contener nada.
+        </li>
+    </ul>
+    <h3>Listas</h3>
+    <p>Sirven para enumerar elementos ya sea sin orden, como estan dispuestos los elementos básicos en esta página, o de manera ordenada como a continuacion:</p>
+    <ol>
+        <li>Las listas desordenadas se definen con la etiqueta <b>ul</b></li>
+        <li>Las listas ordenadas se definen con la etiqueta <b>ol</b></li>
+        <li>Entre las etiquetas de apertura y cierre de la lista, podemos introducir diferentes elementos en ella con la etiqueta <b>li</b></li>
+        <li>Podemos anidar unas lsitas en otras, como aqui:</li>
+            <ul>
+                <li>Por ejemplo aqui estamos anidando una lista desordenada dentro de una ordenada</li>
+                <li>Esto es verdaderamente util para organizar muchos tipos de información</li>
+            </ul>
+        <li>Hay que tener en cuenta que los elementos <b>li</b> siempre tiene que estar dentro de una lista</li>
+        <li>Hay que tener cuidado con la apertura y cierre de las diferentes listas y elementos de estas, recuerda cerrar todos los elementos con una etiqueta de cierre</li>
+            <ol>
+                <li>Listas ordenadas: <i style="font-family: 'Times New Roman'">&lt;ol>&lt;/ol>.</i></li>
+                <li>Listas desordenadas: <i style="font-family: 'Times New Roman'">&lt;ul>&lt;/ul>.</i></li>
+                <li>Elemntos de la lista: <i style="font-family: 'Times New Roman'">&lt;li>&lt;/li>.</i></li>
+            </ol>
+    </ol>
+    <h3>Tablas</h3>
+    <p>
+        No son muy utilizadas a día de hoy, pero nos permiten organizar información en forma de tabla, como su nombre indica. Se definen con la etiqueta <b>table</b>, y dentro de este elemento
+        tendremos que ir definiendola fila a fila y dentro de cada fila celda a celda. Indicamos una nueva fila con la etiqueta<b>tr</b>, y dentro de este nuevo elemento iremos introduciendo las celdas 
+        con la etiqueta <b>th</b> para una cabezera de tabla o <b>td</b> para una celda normal. Las celdas son elementos que pueden tener informacion de todo tipo en su interior, texto, imagenes, hipervinculos...
+        <br> Es importante hacer coincidar el numero de elementos en cada fila.
+    </p>
+    <table border="6" cellpadding="10">
+        <tr>
+            <th colspan="2">Atributos de la tabla</th>
+        </tr>
+        <tr>
+            <th>table</th>
+            <th>celdas (th / td)</th>
+        </tr>
+        <tr>
+            <td><b>border="n"</b><br>Crea un borde de n pixeles de ancho alrededor de la tabla y entre sus elementos.<br>Esta tabla tiene un border de 6</td>
+            <td><b>colspan="n"</b><br>Hace que una celda ocupe el ancho de n celdas.<br>La primera celda de esta tabla tiene un colspan de 2</td>
+        </tr>
+        <tr>
+            <td><b>cellpadding="n"</b><br>Indica un espacio de n pixeles entre el borde de cada celda y el contenido de esta.<br>Esta tabla tiene un cellpadding de 10</td>
+            <td rowspan=2><b>rowspan="n"</b><br>Hace que una celda ocupe el alto de n celdas.<br>Como no hay mas atributos exclusivos de celdas, esta celda tiene un rowspan de  los elementos necesarios para completar la tabla</td>
+        </tr>
+        <tr>
+            <td><b>cellspacing="n"</b><br>Indica un espacio de n pixeles tanto en ancho como en alto entre cada celda de la tabla</td>
+        </tr>
+    </table>
+</body>
+</html>
