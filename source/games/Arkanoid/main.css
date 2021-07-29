@@ -1,0 +1,48 @@
+canvas {
+    border: 1px solid black;
+}
+
+button{
+    background: black;
+    color: orange;
+    display: inline-block;
+    font-size: 20px;
+    margin: 20px;
+    padding: 10px 5px;
+    text-align: center;
+    width: 200px;
+    text-decoration: none;
+    box-shadow: 0px 3px 0px rgb(21, 137, 245);
+}
+
+body {
+    background-image: url('Arkanoid_Sprites/fondo1.png');
+    background-attachment: fixed;
+    background-size: auto;
+}
+
+p.estilo{
+    font-family: 'Lucida Sans';
+    font-size:8pt;
+    color: orange;
+    text-align: right;
+}
+
+.glow {
+    font-size: 80px;
+    color: #fff;
+    text-align: center;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px orange, 0 0 40px orange, 0 0 50px orange, 0 0 60px orange, 0 0 70px orange;
+    }
+
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px rgb(21, 137, 245), 0 0 50px rgb(21, 137, 245), 0 0 60px rgb(21, 137, 245), 0 0 70px rgb(21, 137, 245), 0 0 80px rgb(21, 137, 245);
+    }
+}

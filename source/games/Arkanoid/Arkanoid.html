@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Practica1</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <audio id="sonido1">
+        <source src="Arkanoid_Sounds/golpe1.mp3"></source>
+    </audio>
+    <audio id="sonido2">
+            <source src="Arkanoid_Sounds/golpe2.mp3"></source>
+    </audio>
+    <audio id="sonido3">
+            <source src="Arkanoid_Sounds/bolaEliminada.mp3"></source>
+    </audio>
+    <audio id="sonido4">
+            <source src="Arkanoid_Sounds/golpePaleta.mp3"></source>
+    </audio>
+    <audio id="sonido5">
+            <source src="Arkanoid_Sounds/lanzarBola.mp3"></source>
+    </audio>
+    <audio id="sonido6">
+            <source src="Arkanoid_Sounds/powerUp.mp3"></source>
+    </audio>
+    <audio id="sonido7">
+        <source src="Arkanoid_Sounds/musicaFondo.mp3"></source>
+</audio>
+    <script src='main.js'></script>
+    
+</head>
+<body onload="iniciarJuego()">
+    <p style="color:rgb(78, 148, 8)"><i>Volver a la pagina de <a href="../../index.html">inicio</a></i></p>
+    <div>
+        <p class="glow"> ARCANOID </p>
+    </div>
+    <div align="center">
+        <!--<button class="button" type="button" onclick="start()">Start</button>-->
+        
+        <button class="button" type="button" onclick="reiniciarJuego()">Inicio</button>
+        
+        <button class="button" type="button" onclick="volumen()">Musica</button>
+    </div>
+    <div>
+        <p align = "center">
+            <canvas id="lienzo" width="1000" height="600"></canvas>
+            <br/>
+        </p>
+    </div>
+    <div>
+        <p class="estilo" align="right">
+            Pagina realizada por: <br/>
+            Alejandro Moya Gomez<br/>
+			05943080H<br/>
+            Manuel Abarca Crespo<br/>
+            71045952X<br/>
+            Fecha de creacion: 05/01/2020<br/>
+			<br/>
+		</p>
+		<p class="estilo" align="left">
+			sonidos: <m href="https://www.freeaudiolibrary.com/es/efectos-gratuitos"> www.freeaudiolibrary.com </m><br/>
+			musica de fondo: <m href="https://filmmusic.io"> Theme for Harold (var. 1)" by Kevin MacLeod </m><br/>
+			fondo del juego: <m href="https://es.pngtree.com/freebackground/3d-futuristic-tunnel-background_1155336.html"> es.pngtree.com </m><br/>
+			background de la pagina: Es de creacion propia.<br/>
+		</p>
+    </div>
+	
+</body>
+
+</html>

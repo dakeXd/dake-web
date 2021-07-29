@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>El juego de la vida</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />       
+        <meta name="author" content="Manuel Abarca y Alejandro Moya">            <!-- Autores de la pagina ;) -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">   <!-- Nuestra pagina mantendra la escala en todos los dispositivos -->
+        <style>
+            canvas {
+                border: 1px solid black;
+            }
+        
+            body {
+                background-image: linear-gradient(black, whitesmoke);
+                background-repeat: repeat-x;
+                background-attachment: fixed;
+                background-size: cover;
+            }
+
+            p.estilo{
+                font-family: unset;
+                font-size:13pt;
+                text-align: center;
+                color:rgb(2, 0, 0);
+            }
+
+            p.estilo2{
+                font-family: 'Lucida Sans';
+                font-size:10pt;
+                color: black;
+                text-align: left;
+            }
+
+            p.estilo3{
+                font-family: 'Lucida Sans';
+                font-size:8pt;
+                color: black;
+                text-align: right;
+            }
+
+            .estilo4 {
+                font-size: 10px;
+                color: rgb(50, 84, 231);
+                text-align: center;
+            }
+
+            input, label {
+                font-size: 22px;
+                color:  rgb(78, 148, 8);
+            }
+
+            .number{
+                font-size:15pt;
+                background: white;
+                color: cornflowerblue;
+                padding: 10px 5px;
+                width: 200;
+            }
+
+            button{
+                background: whitesmoke;
+                color: rgb(200,000,200);
+                display: inline-block;
+                font-size: 20px;
+                margin: 0px;
+                padding: 10px 5px;
+                text-align: center;
+                width: 200px;
+                text-decoration: none;
+                box-shadow: 0px 3px 0px #373c3c;
+            }
+
+            .glow {
+                font-size: 80px;
+                color: #fff;
+                text-align: center;
+                -webkit-animation: glow 1s ease-in-out infinite alternate;
+                -moz-animation: glow 1s ease-in-out infinite alternate;
+                animation: glow 1s ease-in-out infinite alternate;
+            }
+
+            @-webkit-keyframes glow {
+                from {
+                    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px rgb(200,000,200), 0 0 40px rgb(200,000,200), 0 0 50px rgb(200,000,200), 0 0 60px rgb(200,000,200), 0 0 70px rgb(200,000,200);
+                }
+
+                to {
+                    text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px chartreuse, 0 0 50px chartreuse, 0 0 60px chartreuse, 0 0 70px chartreuse, 0 0 80px chartreuse;
+                }
+            }
+
+
+        </style>
+
+        
+         <!-- Cargamos los sonidos -->
+        <audio id="sonido1">
+            <source src="Sonidos/electricidad_3.mp3"></source>
+        </audio>
+        <audio id="sonido2">
+                <source src="Sonidos/SciFiLasersWeaponEC_10.mp3"></source>
+        </audio>
+        <audio id="sonido3">
+                <source src="Sonidos/beep_05.mp3"></source>
+        </audio>
+        <audio id="sonido4">
+                <source src="Sonidos/Whooshes_EC0-90.mp3"></source>
+        </audio>
+        <audio id="sonido5">
+                <source src="Sonidos/beepsbonksboinks_30.mp3"></source>
+        </audio>
+        <audio id="sonido6">
+                <source src="Sonidos/misterio.mp3"></source>
+        </audio>
+
+        <script type="text/javascript"> //Empezemos con el juego :D 
+        
+        
+            ////////////////////////Espacio reservado para clases///////////////////////////
+
+            //Clase celula
+            class Celula{
+                constructor(viva = false, turnos = 1) {         //Valores por defecto, celula muerta en el primer turno
+                    this.viva = viva;                           //Estado de la celula
+                    this.turnos = turnos;                       //Turnos que lleva la celula en ese estado.
+                }
+
+                //Aplicamos las reglas del juego de la vida a la celula
+                aplicarReglas(numCelulas){
+                    var auxCelula = new Celula()                //Creamos una nueva celula que sera la que guardemos en el mundo secundario
+                    auxCelula.turnos = this.turnos;             //Esta celula tendra los mismos valores que la original
+                    auxCelula.viva = this.viva;
+                
+                    if(auxCelula.viva == true){
+                        if(numCelulas< 2 || numCelulas>3){     //si la celula esta viva seguira estandolo mientras tenga 2 o 3 celulas vivas al lado
+                            auxCelula.viva = false;                  //Cambiamos el estado de la celula
+                            auxCelula.turnos = 0;                    //Como cambiamos de estado se reinica el numero de turnos que la celula ha estado en ese estado
+                        }
+                    }else{
+                        if(numCelulas == 3){                    //si la celula esta muerta solo volvera a estar viva si tiene 3 celulas vivas al lado
+                            auxCelula.viva = true;                   //Cambiamos el estado de la celula
+                            auxCelula.turnos = 0;                    //Como cambiamos de estado se reinica el numero de turnos que la celula ha estado en ese estado
+                        }
+                    }
+                    auxCelula.turnos++;                              //Aumentamos el numero de turnos*/
+                return auxCelula;                                    //Devolvemos la celula modificada
+                }
+            
+
+                
+            }
+            
+            //Clase espacio
+            class Espacio{
+                constructor(x = 40, y = 40) {                   //Valores por defecto, 40 de alto por 40 de ancho
+                    this.x = x;                                 //Tamaño en x
+                    this.y = y;                                 //Tamaño en y
+                    this.mundo = iniciarMundo(x, y);            //Mundo es un array de celulas de dos dimensiones, lo iniciamos con la funcion iniciarMundo
+                    this.tamRectangleX = 800/this.x;            //Tamaño que tedran las celulas al dibujarlas, es el tamaño del canvas entre el total de celulas
+                    this.tamRectangleY = 800/this.y;
+                }
+
+                //Metodo contar celulas, que nos indicara el numero de celulas vivas que hay alrededor de la indicada
+                contarCelulas(posX, posY){  
+                    var contador = 0;                           //Numero de celulas cercanas a la nuestra
+                    for(var i = -1; i<2; i++){                  //Bucle que recorre las 8 posiciones adyacentes a la celula (y tambien la posicion propia)
+                        for(var j = -1; j<2; j++){
+                            var auxX = posX+i;                  //Creamos una variable que sera la posicion en la que comprobaremos si existe una celula viva
+                            var auxY = posY+j;                  //Lo mismo en y
+                            
+                            if(auxX < 0){                       //Si la posicion esta fuera del mundo por la izquierda, cogemos la primera por la derecha
+                                auxX = this.x -1;
+                            }
+                            if(auxY < 0){                       //Si la posicion esta fuera del mundo por arriba, cogemos la primera por debajo
+                                auxY = this.y -1;
+                            }
+                            if(auxX >= this.x){                 //Si la posicion esta fuera del mundo por la derecha, cogemos la primera por la izquierda
+                                auxX = 0;
+                            }
+                            if(auxY >= this.y){                 //Si la posicion esta fuera del mundo por debajo, cogemos la primera por arriba
+                                auxY = 0;
+                            }
+                            
+                            if(this.mundo[auxX][auxY].viva == true){    //Si la celula que estmaos comprobando esta viva, se añade 1 al contador
+                                contador++; 
+                            }
+                        }
+                    }
+                    if(this.mundo[posX][posY].viva == true){
+                        contador--;                              //Como estamos contando la propia posicion de la celula, si esta está viva. tendremos que restar uno al numero de celulas alrededor de esta, ya que se habra sumado en el bucle anterior y no deberiamos contarla
+                    }
+                    return contador;                             //Devolvemos el total de celulas vivas alrededor
+                }
+                
+                //Metodo que nos permite cambiar el tamaño del mundo, pide las nuevas dimensiones deseadas para este
+                resize(tamX, tamY){                              
+                    audio5.play();                                  //Emitir sonido
+                    var espacioAux = new Espacio(tamX, tamY);    //Creamos un nuevo espacio con el tamaño deseado
+
+                    var minX = this.x;                           //Variable que almacenara el tamaño mas pequeño en X de los dos espacios
+                    var minY = this.y;                           //Variable que almacenara el tamaño mas pequeño en Y de los dos espacios
+                    
+
+                    if(tamX < minX){                             //comprobamos que espacio es menor en x
+                       minX = tamX;                               
+                    }
+                    if(tamY < minY){                             //comprobamos que espacio es menor en y
+                       minY = tamY;
+                    }
+
+                    for(var i = 0; i<minX; i++){                 //Copiamos el mundo original en el nuevo, si el nuevo es mas pequeño, las celulas que queden fuera se perderan.
+                        for(var j = 0; j<minY; j++){
+                            espacioAux.mundo[i][j] = this.mundo[i][j];
+                        }
+                    }
+
+                    this.mundo = espacioAux.mundo;               //Guardamos el nuevo mundo como el del tablero
+                    this.x = tamX;                               //Guardamos los nuevos datos en el mundo
+                    this.y = tamY;
+                    this.tamRectangleX = 800/this.x;            //Los cuadrados tendran unn tamaño diferente al original , asique loscmabiamos
+                    this.tamRectangleY = 800/this.y;
+        
+    
+                    reDibujar(this);                                //Volvemos a dibujar la escena
+                }
+
+                //metodo que nos permite avanzar un paso del progrmaa
+                iteracion(){
+                    var espacioAux = new Espacio(this.x, this.y);                                                       //Creamos un segundo espacio para ir guardando las nuevas posiciones
+                    for(var i = 0; i< this.x; i++){                                                                     //Bucle que recorre todas las posiciones del mundo
+                        for(var j = 0; j<this.y; j++){
+                            espacioAux.mundo[i][j] = this.mundo[i][j].aplicarReglas(this.contarCelulas(i,j));           //La posicion en el segundo espacio sera la posicion actualizada del primero
+                        }
+                    }
+                    this.mundo = espacioAux.mundo;                                                                      //Actualizamos el mundo
+                    pasosTotales++;                                                                                     //Aumentamos el numero de pasos totales
+                    reDibujar(this);                                                                                    //Volvemos a dibujar la escena
+                }
+
+                //Metodo que randomiza todas las casillas del juego
+                randomizar(){
+                    audio1.play();
+                    //var probabilidadViva = 0.1;                                                                         //Probabilidad entre 0 y 1 de que una celula este viva
+                    for(var i = 0; i< this.x; i++){                                                                     //Bucle que recorre todas las posiciones del mundo
+                        for(var j = 0; j<this.y; j++){
+                            var probV = Math.random();                                                                  //Generamos un numero aleatorio entre 0 y 1
+                            if(probV <= probabilidadViva){                                                              //Si el numero es menor que la probabilidad, significa que la celula esta viva
+                                this.mundo[i][j].viva = true;
+                            }else{
+                                this.mundo[i][j].viva = false;                                                          //Si el numero es mayorque la probabilidad, significa que la celula esta muerta
+                            }
+                        }
+                    }
+                    reDibujar(this);                                                                                    //Volvemos a dibujar la escena
+                }
+
+                //Metodo que sirve para reiniciar el mundo
+                reiniciar(){
+                    audio4.play();
+                    var espacioAux = new Espacio(this.x, this.y);                                                        //Creamos un nuevo mundo vacio
+                    this.mundo = espacioAux.mundo;                                                                       //Se lo asignamos al actual
+                    pasosTotales = 1;                                                                                    //Reiniciamos el numero de pasos totales.
+                    reDibujar(this);                                                                                     //Volvemos a dibujar la escena
+                }
+
+                //Metodo que saca en el html los datos de una casilla
+                devolverEstado(posiX, posiY){
+                    var celulaX = document.getElementById("celulaX");                                                    //Recogemos el lguar donde vamos a exponer los datos
+                    var celulaY = document.getElementById("celulaY");
+                    var estadoCelula = document.getElementById("estadoCelula");
+                    var pasos = document.getElementById("pasos");
+                    celulaX.innerHTML = posiX;                                                                           //Asginamos a esos sitios el valor de la celula
+                    celulaY.innerHTML = posiY;
+                    if(this.mundo[posiX][posiY].viva){  
+                        estadoCelula.innerHTML = "viva";
+                    }else{
+                        estadoCelula.innerHTML = "muerta";
+                    }
+                    pasos.innerHTML = this.mundo[posiX][posiY].turnos;
+                }
+
+                contadorCelulas(){
+                    var contador = 0;
+                    for(var i = 0; i< this.x; i++){                                                                     //Bucle que recorre todas las posiciones del mundo
+                        for(var j = 0; j<this.y; j++){
+                           if(this.mundo[i][j].viva == true){
+                               contador++;
+                           }
+                        }
+                    }
+                    return contador;
+                }
+                
+            }
+
+            ///////////////////////////////////////////////////////////////////////////////////////////////
+
+
+            ////////////////////////Espacio reservado para inicializar variables///////////////////////////
+            var probabilidadViva = 0.1;                      //Probabilidad entre 0 y 1 de que una celula este viva al hacer un random
+            var espacioAct = new Espacio();                  //Espacio principal, es el que se mostrara por pantalla.
+            var canvas;                                      //Canvas en el que pintaremos todo
+            var contexto;                                           
+            var pasosPorSegundo = 10;                        //Numero de pasos que se avanzan en un segundo
+            var temporizador = undefined;                    //Temporizador del buvle
+            var dibujo = 0;                                  //Accion que realizar al clickar el raton, 0 es cambiar el estado de la celula, 1 dibujar un parpadeador
+            var pasosTotales = 1;                            //Numero de pasos que llevamos
+            var runnning = false;                            //Comprueba si el programa se esta ejecutando
+            //Recursos |Audios|
+            var audio1= document.getElementById("sonido1");
+            var audio2= document.getElementById("sonido2");
+            var audio3= document.getElementById("sonido3");
+            var audio4= document.getElementById("sonido4");
+            var audio5= document.getElementById("sonido5");
+            var audio6= document.getElementById("sonido6");
+            ///////////////////////////////////////////////////////////////////////////////////////////////
+
+
+            ////////////////////////Espacio reservado para funciones ///////////////////////////
+
+            //funcion que inicia un mundo de celulas en estado inicial (muertas y con turnos a 0)
+            function iniciarMundo(x, y) {
+                    var tablero = [];                        //Creamos una variable tabblero que sera un array de dos dimensiones
+                    for(var i = 0; i < x; i++){
+                        tablero[i] = [];                     //Como en javascript no existen los arrays multidimensionales, crearemos un array de arrays
+                        for(var j = 0; j<y; j++){
+                            var celulaI = new Celula();      //Creamos una celula generica
+                            tablero[i][j] = celulaI;         //La guardamos en el tablero
+                        }
+                    }
+                return tablero;                              //Devolvemos el tablero
+            }
+
+            //Funcion que vuelve a dibujar el canvas
+            function reDibujar(tablero){
+                
+                
+                for (i = 0; i < tablero.x; i++) {
+                    for (j = 0; j < tablero.y; j++) {
+                        if (tablero.mundo[i][j].viva == false) {                //Si la celula esta muerta la pintamos de morado
+                            contexto.fillStyle = "rgb(41, 0, 91)";
+                        } else {
+                            contexto.fillStyle = "rgb(0,170,0)";                //Si esta viva le aignamos el valor verde
+                        }
+                        //Coloreamos el cuadrado
+                        contexto.fillRect(i * tablero.tamRectangleX, j * tablero.tamRectangleY, tablero.tamRectangleX, tablero.tamRectangleY);      //Dibujamos todos los cuadrados proporcionalmente al lienzo
+                        contexto.strokeRect(i *tablero.tamRectangleX, j * tablero.tamRectangleY, tablero.tamRectangleX, tablero.tamRectangleY);    //Los rodeamos ocn un stroke para poder distinguirlos
+                    }
+                }
+
+                var pasos = document.getElementById("pasosTotales");
+                    pasos.innerHTML = pasosTotales;
+                var cel = document.getElementById("numCelulasV");
+                    cel.innerHTML = tablero.contadorCelulas();    
+            }
+
+            function iniciarJuego() {
+                canvas = document.getElementById("lienzo");                                                         //Cargamos el lienzo
+                contexto = canvas.getContext("2d");                                                                 //Cargamos el contexto del lienzo
+                canvas.addEventListener("click", clickRaton, false);                                                //adjuntamos la funcion para el click del raton
+                canvas.addEventListener("mousemove", pasarRaton, false);                                            //Adjuntmaos la funcion para el movimiento del raotn
+
+
+                reDibujar(espacioAct);                                                                               //Dibujamos el espacio por primera vez   
+            }
+            
+            function pasarRaton(evt){
+                reDibujar(espacioAct);                      //Al hacer esto borraremos el rastro de anteriores pasadas del raton
+
+                var ClientRect = canvas.getBoundingClientRect();
+                var chX = evt.clientX - ClientRect.left;                //Calculamos la posicion del click del raton dentro del canvas
+                var chY = evt.clientY - ClientRect.top;
+                chX = Math.floor(chX/espacioAct.tamRectangleX);         //la posicion del cuadrado al que apunta sera la posicion del raton entre el tamaño de los cuadrados
+                chY = Math.floor(chY/espacioAct.tamRectangleY);
+                if(chX>espacioAct.x-1 || chY>espacioAct.y-1){
+                    console.log(chX);
+                    console.log(chY);
+                }else{
+                    if(espacioAct.mundo[chX][chY].viva==true){              //Dependiendo si la celula esta viva o muerta, al pasar por encima se le asignara un color diferente           
+                        contexto.fillStyle = "rgb(200,200,200)"
+                    }else{
+                        contexto.fillStyle = "rgb(200,000,200)"             
+                    }
+
+                    contexto.fillRect(chX * espacioAct.tamRectangleX, chY*espacioAct.tamRectangleY, espacioAct.tamRectangleX, espacioAct.tamRectangleY);   //Pintamos el cuadrado         
+                    espacioAct.devolverEstado(chX, chY);  
+                }                                                                                                 //Mostramos en el html los datos de la celula sobre la que estmamos
+            }
+
+            //Cuando pulsamos un cuadrado queremos que cambie su estado
+            function clickRaton(evt){
+        
+                var ClientRect = canvas.getBoundingClientRect();
+                var chX = evt.clientX - ClientRect.left;                //Calculamos la posicion del click del raton dentro del canvas
+                var chY = evt.clientY - ClientRect.top;
+                chX = Math.floor(chX/espacioAct.tamRectangleX);         //la posicion del cuadrado al que apunta sera la posicion del raton entre el tamaño de los cuadrados
+                chY = Math.floor(chY/espacioAct.tamRectangleY);
+                if(dibujo == 0){                                            //Cambiamos el estado de la celula(valor por defecto)
+                    if(espacioAct.mundo[chX][chY].viva==true){              //Si la celula esta viva se muere
+                        espacioAct.mundo[chX][chY].viva=false;
+                    }else{
+                        espacioAct.mundo[chX][chY].viva=true;               //si esta muerta revive
+                    }
+                }if(dibujo == 1){                                           //Dibujamos un parpadeador
+                    var auxX = chX;
+                    var auxY = chY;
+                    espacioAct.mundo[auxX][auxY].viva=true;
+                    auxX = chX-1;
+                    espacioAct.mundo[comprobarBordeX(auxX)][auxY].viva=true;
+                    auxX = chX+1;
+                    espacioAct.mundo[comprobarBordeX(auxX)][auxY].viva=true;
+                }
+                if(dibujo == 2){                                           //Dibujamos un barco
+                    var auxX = chX;
+                    var auxY = chY;
+                    espacioAct.mundo[auxX][auxY].viva=false;
+                    auxX = chX-1;
+                    auxY = chY-1;
+                    espacioAct.mundo[comprobarBordeX(auxX)][comprobarBordeY(auxY)].viva=true;
+                    auxX = chX;
+                    auxY = chY-1;
+                    espacioAct.mundo[comprobarBordeX(auxX)][comprobarBordeY(auxY)].viva=true;
+                    auxX = chX+1;
+                    auxY = chY-1;
+                    espacioAct.mundo[comprobarBordeX(auxX)][comprobarBordeY(auxY)].viva=false;
+                    auxX = chX-1;
+                    auxY = chY;
+                    espacioAct.mundo[comprobarBordeX(auxX)][comprobarBordeY(auxY)].viva=true;
+                    auxX = chX+1;
+                    auxY = chY;
+                    espacioAct.mundo[comprobarBordeX(auxX)][comprobarBordeY(auxY)].viva=true;
+                    auxX = chX-1;
+                    auxY = chY+1;
+                    espacioAct.mundo[comprobarBordeX(auxX)][comprobarBordeY(auxY)].viva=false;
+                    auxX = chX;
+                    auxY = chY+1;
+                    espacioAct.mundo[comprobarBordeX(auxX)][comprobarBordeY(auxY)].viva=true;
+                    auxX = chX+1;
+                    auxY = chY+1;
+                    espacioAct.mundo[comprobarBordeX(auxX)][comprobarBordeY(auxY)].viva=false;
+                }
+                if(dibujo == 3){                                           //Dibujamos un planeador
+                    var auxX = chX;
+                    var auxY = chY;
+                    espacioAct.mundo[auxX][auxY].viva=false;
+                    auxX = chX-1;
+                    auxY = chY-1;
+                    espacioAct.mundo[comprobarBordeX(auxX)][comprobarBordeY(auxY)].viva=true;
+                    auxX = chX;
+                    auxY = chY-1;
+                    espacioAct.mundo[comprobarBordeX(auxX)][comprobarBordeY(auxY)].viva=true;
+                    auxX = chX+1;
+                    auxY = chY-1;
+                    espacioAct.mundo[comprobarBordeX(auxX)][comprobarBordeY(auxY)].viva=true;
+                    auxX = chX-1;
+                    auxY = chY;
+                    espacioAct.mundo[comprobarBordeX(auxX)][comprobarBordeY(auxY)].viva=true;
+                    auxX = chX+1;
+                    auxY = chY;
+                    espacioAct.mundo[comprobarBordeX(auxX)][comprobarBordeY(auxY)].viva=false;
+                    auxX = chX-1;
+                    auxY = chY+1;
+                    espacioAct.mundo[comprobarBordeX(auxX)][comprobarBordeY(auxY)].viva=false;
+                    auxX = chX;
+                    auxY = chY+1;
+                    espacioAct.mundo[comprobarBordeX(auxX)][comprobarBordeY(auxY)].viva=true;
+                    auxX = chX+1;
+                    auxY = chY+1;
+                    espacioAct.mundo[comprobarBordeX(auxX)][comprobarBordeY(auxY)].viva=false;
+                }
+                dibujo = 0;                                                 //Reasignamos al valor por defecto
+                reDibujar(espacioAct);                                      //Volvemos a dibujar el canvas
+            }
+
+
+            function comprobarBordeX(tx){                                   //Comprobacion de que x no se sale de los limites para crear un mapa infinito
+                if(tx < 0){
+                    tx = espacioAct.x-1;
+                }
+                if(tx > espacioAct.x-1){
+                    tx = 0;
+                }
+                return tx;                                                   //Si no se sale, devolvera el mismo valor que ha entrado
+            }
+
+            function comprobarBordeY(ty){                                    //Comprobacion de que y no se sale de los limites para crear un mapa infinito
+                if(ty < 0){
+                    ty = espacioAct.y-1;
+                }
+                if(ty > espacioAct.y-1){
+                    ty = 0;
+                }
+                return ty;                                                   //Si no se sale, devolvera el mismo valor que ha entrado
+            }
+
+            //Iniciamos el bucle de juego
+            function bucleDeJuego(){
+                if(runnning == false){                                                                 //Solo iniciaremos el bucle si este no se esta ejecutando ya
+                    audio2.play();
+                    console.log(1000/pasosPorSegundo);
+                    temporizador = setInterval("espacioAct.iteracion()",1000/pasosPorSegundo); //Ejecutemos la operacion iteracion el numero de veces por segundo que nos indica la variable pasosPorSeggundo
+
+                    runnning = true;                                                            //Indicamos que estamos ejecuando el bucle
+                }           
+            }
+
+            function pararBucle(){
+               audio3.play();
+               clearInterval(temporizador);                                                 //Limpiamos la funcion temporizador
+               temporizador = undefined;                                                    //Le asiggnamos un valor nulo
+               runnning = false;                                                             //Indicamos que el bucle se ha parado
+            }
+
+            function cambiarVelocidad(vel){                                                     //Funcion que cambia la vcelocidad de los pasos
+                pasosPorSegundo = vel;                                                          //Asignamos el nuevo valor a pasos por segundo
+                clearInterval(temporizador);                                                    //Reiniciamos el bucle
+                runnning = false;  
+                bucleDeJuego();
+            }
+            function setPorcentaje(porcentaje){                                                 //Funcion que cambia el porcentaje de celulas vivas al hacer un random
+                audio6.play()
+                probabilidadViva = porcentaje;
+            }
+            ///////////////////////////////////////////////////////////////////////////////////////////////
+
+
+        </script>
+
+
+    </head>
+    <body onload ="iniciarJuego()">
+        <p style="color:rgb(78, 148, 8)"><i>Volver a la pagina de <a href="../../index.html">inicio</a></i></p>
+        <hr>
+            <p class="glow">
+                EL JUEGO DE LA VIDA
+            </p>
+        <div>
+            <p align="center">
+                
+                <button onclick="bucleDeJuego()">Empezar</button>
+                <button onclick="pararBucle()">Parar</button>
+                <label for="vel"> 
+                    Pasos por segundo 
+                    <input  type="number" class="number" id="vel" value="10"> </input>
+                </label>
+                <button class="button" onclick="cambiarVelocidad(document.getElementById('vel').value)">Cambiar Velocidad</button>
+                
+            </p>
+            <p align="center">
+                <label for="ancho"> 
+                    Ancho 
+                    <input  type="number" class="number" id="ancho" value="40"> </input>
+                </label>
+                <label for="alto"> 
+                    Alto 
+                    <input  type="number" class="number" id="alto" value="40"> </input>
+                </label>
+                <button class="button"onclick="espacioAct.resize(document.getElementById('ancho').value, document.getElementById('alto').value)">Resize</button>
+                <button onclick="espacioAct.reiniciar()">Limpiar</button>
+            </p>
+            <p align="center">
+                <button class="button2" onclick="espacioAct.iteracion()">Paso siguiente</button>
+                <button class="button" onclick="espacioAct.randomizar()">Crear Aleatorio</button>
+                <button onclick="dibujo = 1">Dibujar parpadeador</button>
+                <button onclick="dibujo = 2">Dibujar barco</button>
+                <button onclick="dibujo = 3">Dibujar planeador</button>
+            </p>
+        </div>
+        <div>
+            <p align = "center">
+                <canvas id="lienzo" width="800" height="800"></canvas>
+                <br/>
+            </p>
+        </div>
+        <div>   
+                <p align = "center">
+                        <label for="porcentaje"> 
+                                Probabilidad de que una celula este viva al hacer un random
+                                <input  type="number" class="number" id="porcentaje" value="0.1"> </input>
+                        </label>
+                        <button class="button" onclick="setPorcentaje(document.getElementById('porcentaje').value)">Cambiar probabilidad</button>
+                </p>
+        </div>
+        <div>
+            <p align="center" class="estilo">
+                </br>
+                 <b> La posición de la célula es </b>
+                 <b> X: </b> 
+                 <b id = "celulaX" > x </b>
+                 <b> Y: </b> 
+                 <b id = "celulaY" > y </b>
+                 <b>, esta celula lleva </b> 
+                 <b id="estadoCelula"> ? </b>
+                 <b id="pasos"> ? </b>
+                 <b> pasos</b>
+                 <br/>
+                 <b>Pasos totales: </b>
+                 <b id="pasosTotales">1</b>
+                 <b>, Número de celulas vivas: </b>
+                 <b id="numCelulasV">0</b>
+                 <br/>
+            </p>   
+            <p class="estilo2">
+                La imagen ha sido sacada de:
+                <a class="estilo2" href="http://isanidad.com/wp-content/uploads/2017/07/Parkinson-celulas-madre.jpg">
+                    www.isanidad.com<br/>
+                </a>
+                Los sonidos han sido sacados de: 
+                <a class="estilo2" href=" https://www.freeaudiolibrary.com/es/efectos-gratuitos">
+                    www.freeaudiolibrary.com<br/>
+                </a>
+            </p>
+            <p class="estilo3">
+                Pagina realizada por: <br/>
+                Alejandro Moya Gomez<br/>
+                Manuel Abarca Crespo<br/>
+            </p>
+        </div>
+    </body>
+</html>
