@@ -1,0 +1,39 @@
+body {
+    background-color: lightblue;
+}
+
+h1 {
+    color: rgb(0, 0, 70);
+    margin-left: 0px;
+}
+
+h2 {
+    color: rgb(0, 0, 120);
+    margin-left: 5px;
+}
+
+h3 {
+    color: rgb(0, 0, 170);
+    margin-left: 10px;
+}
+
+h3 {
+    color: rgb(0, 0, 220);
+    margin-left: 15px;
+}
+
+
+b {
+    color: darkred;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+i {
+    color: rgb(5, 102, 5);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#volver{
+    color: mediumvioletred;
+    font-style:italic;
+}

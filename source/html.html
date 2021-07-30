@@ -3,10 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta name = "viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/htmlSyle.css">
     <title>HTML Tutorial</title>
 </head>
 <body>
-    <p><i>Volver a la pagina de <a href="index.html">inicio</a></i></p>
+    <nav>
+        <p id="volver">Volver a la pagina de <a href="index.html">inicio</a></p>
+    </nav>
     <hr>
     <h1>Tutorial HTML</h1>
     <h2>Estructura del documento</h2>
@@ -76,6 +79,11 @@
             <b>Formato de texto</b>:<br>
             &nbsp;&nbsp;&nbsp;&nbsp;Podemos encerrar texto entre ciertas etiquetas para darle un formato especial. Estas son <b>&lt;b>&lt;/b></b> para negrita <i>&lt;i>&lt;/i></i> para cursiva y <u>&lt;u>&lt;/u></u> para subrayado
         </li>
+        <li>
+            <b>nav</b>:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Sirve para marcar una zona de navegacion, donde generalmente estaran incluidos los links de la pagina, como ir a la página principal, FAQS... En esta página se usa para el link de volver a la página
+             principal. 
+        </li>
     </ul>
     <h3>Listas</h3>
     <p>Sirven para enumerar elementos ya sea sin orden, como estan dispuestos los elementos básicos en esta página, o de manera ordenada como a continuacion:</p>
@@ -99,9 +107,9 @@
     <h3>Tablas</h3>
     <p>
         No son muy utilizadas a día de hoy, pero nos permiten organizar información en forma de tabla, como su nombre indica. Se definen con la etiqueta <b>table</b>, y dentro de este elemento
-        tendremos que ir definiendola fila a fila y dentro de cada fila celda a celda. Indicamos una nueva fila con la etiqueta<b>tr</b>, y dentro de este nuevo elemento iremos introduciendo las celdas 
+        tendremos que ir definiendola fila a fila y dentro de cada fila celda a celda. Indicamos una nueva fila con la etiqueta <b>tr</b>, y dentro de este nuevo elemento iremos introduciendo las celdas 
         con la etiqueta <b>th</b> para una cabezera de tabla o <b>td</b> para una celda normal. Las celdas son elementos que pueden tener informacion de todo tipo en su interior, texto, imagenes, hipervinculos...
-        <br> Es importante hacer coincidar el numero de elementos en cada fila.
+        <br> Es importante hacer coincidar el numero de elementos en cada fila. Podemos agregar un elemento <b>caption</b> que mostrara su contenido encima de la tabla, para indicar un titulo, por ejemplo.
     </p>
     <table border="6" cellpadding="10">
         <tr>
@@ -123,5 +131,46 @@
             <td><b>cellspacing="n"</b><br>Indica un espacio de n pixeles tanto en ancho como en alto entre cada celda de la tabla</td>
         </tr>
     </table>
+    <h3>Formularios</h3>
+    <p>
+        Formularios que contienen distintos elementos (<i>form elements</i>) que nos permiten obtener feedback de la página, como pueden ser <i>text fields, checkboxes, radio buttons, submit buttons</i>...</p>
+    <p>
+        Uno de los tipos primarios de elementos son los <i>&lt;input></i>, que nos permiten capturar texto por parte del usuario. Tienen un atributo <b>type</b> que define que tipo de informacion capturar, siendo la mas popular text, que permite capturar una linea de texto. Existen otros como date, tiem, email, url, number, tel... 
+    </p>
+    <p>Suelen tener un atributo <b>name</b> para diferenciarlos del resto, ademas, pueden contar con atributo <b>placeholder</b> para indicar un texto por defecto antes de introducir cualquier valor.</p> 
+    <p>Para capturar texto tambien podemos usar un elemento diferente llamado <b>textarea</b> que permite capturar mas de una linea de texto y que se puede redimensionar, ademas, puede tener un texto por defecto.</p>
+    <p>Para crear un boton podemos usar un input de tipo <b>submit</b></p>
+    <h4>Ejemplo de formulario</h4>
+    <form>
+        <input placeholder="Your name" type="text" name="myfriendname">
+        <input placeholder="Your email address" type="email" name="email-address">
+        <br>
+        <textarea name="comment">Add your awesome comment here</textarea>
+        <input type="submit" name="enviar" value="Enviar">
+    </form>
+    <h2>CSS</h2>
+    <p>Generalmente asociado en un documento aparte, CSS o cascade style sheet nos permite definir un estilo a nuestras páginas web. Para usar este estilo des de un documento html, debemos referenciarlo con la etiqueta <b>link</b>: <i>&lt;link rel="stylesheet" type="text/css" href="source"></i> en la cabecera del documento</p>
+    <p>Su estructura esta formada por un selector, que indica a que elementos del HTML se aplica el estilo y un bloque de declaracion, donde se declara el estilo mediante una o mas declaraciones separadas por semicomas. 
+        cada declaración esta constituida por un nombre de propiedad y un valor, separados por puntos dobles. Los selectores por otro lado, pueden ser atributos o tipos de elemento (como h1).
+    </p>
+    <p>Como ejemplo, el fondo de está página se ha cambiado modificando el elemento body de la siguiente manera: <i>body { background-color: lightblue; }</i></p>
+    <h3>Selectores</h3>
+    <p>Son necesarios para identificar a que elemento HTML nos referimos, pueden ser un tipo de elemento directamente, como p, pero para poder definir diferentes estilos para mismos elementos, tenemos que usar un atributo class. Usaremos el mismo class en todos los elementos a los que querramos aplicar el estilo, para darle 
+        un estilo desde CSS usaremos el selector <b>.nombreClass{}</b>. Los elementos HTML pueden tener multiples elementos class separandolos por espacio en sus atributos <i>&lt;p class="green bold"</i>.
+    </p>
+    <p>Si queremos que un unico elemento HTML tenga un estilo, usaremos un atributo id en el elemento. Para modificar un id en css usaremos como identificar <b>#nombreID</b></p>
+    <p>Si queremos aplicar un mismo estilo a diferentes elementos, simplemente hay que separarlos por comas en el selector. Por ejemplo, si queremos qeu h1, h2 y p sean verdes podriamos indicarlo como <i>h1, h2, p {color:green;}</i></p>
+    <p>Hay que tener en cuenta que los estilos se aplican desde fuera hacia dentro, teniendo prioridad lo más especifico. Asi, si indicamos que todos los parrafos seran verdes y tendran un tamaño de 12 px, y a nuestro parrafo le indicamos un estilo que pone el color a naranja, nuestra parrafo sera naranja, al ser más especifico un estilo que un parrafo, y tendra un tamaño de 12px, como indica el estilo de los parrafos.</p>
+    <h3>Propiedades</h3>
+    <ul>
+        <li><b>color</b>: Cambia el color del elemento, acepta el nombre del color, su valor hexadecimal o como componentes RGB</li>
+        <li><b>background-color</b>: Cambia el color del fondo de un elemento, generalmente usado en el body, pero se puede usar tambien en parrafos, divs...</li>
+        <li><b>background-image</b>: Añade una imagen como fondo del elemento. Su valor tiene que ser una funcion url("source"), siendo source el link de la imagen</li>
+        <li><b>margin-left/right/top/bottom</b>: Define un margen del tamaño especificado con el elemento indicado por el nombre</li>
+        <li><b>font-size</b>: Cambia el tamaño de la fuente, puede ser en diversas medidas, como px, o porcentual a la pantalla</li>
+        <li><b>font-family></b>: Cambia la fuente del texto. Tiene que estar instalada en el equipo que cargue la página. Si se indican varias, si no se consigue aplicar una se intentara aplicar la siguiente</li>
+        <li><b>font-style</b>: Cambia el estilo del texto, puede ser normal, italic, oblique o inherit</li>
+        <li><b>font-weight</b>: Cambia el ancho de la fuente, puede tomar un valor numerico o uno de los siguientes valores: normal, bold, bolder, lighter, inherit</li>
+    </ul>
 </body>
 </html>
