@@ -4,34 +4,79 @@
     <meta charset="utf-8">
     <meta name = "viewport" content="width=device-width, initial-scale=1">
     <!-- charset es el encode de los caracteres y el viewport asegura que la pagina sea responsive y se ajuste a diferentes dispositivos -->
+    <link rel="stylesheet" type="text/css" href="css/indexStyle.css">
+    <script src="js/indexJS.js"></script>
     <title>Dake Web</title>
 </head>
 <body>
     <h1>Dake web</h1>
-    <p>Pagina web creada desde 0 por Manuel Abarca Crespo</p>
-    <p>Links a mi <a href="https://github.com/dakeXd" target="_blank">Github</a> <a href="https://twitter.com/dakeXd00" target="_blank">Twitter</a></p>
-    <hr>
-    <h2>Tutorial básico de HTML</h2>
-    <p>Cuenta con los elementos HTML usados para crear esta página. <a href="html.html">Tutorial</a></p>
-    <hr>
-    <h2>Juegos en javascript</h2>
-    <ul>
-        <li>
-            <a href= "games/ElJuegoDeLaVida/JuegoDeLaVida.html">El juego de la vida</a>
-        </li>
-        <li>
-            <a href= "games/Arkanoid/Arkanoid.html">Arkanoid</a>
-        </li>
-    </ul>
-    <hr>
-    <h2>Registro de actividad</h2>
-    <ul>
-        <li><b>29/07/2021</b>:</li>
+    <div id="descripcion" class="descripcion">
+        <p>Pagina web creada desde 0 por Manuel Abarca Crespo</p>
+        <p>Links a mi <a href="https://github.com/dakeXd" target="_blank" title="https://github.com/dakeXd">Github</a> <a href="https://twitter.com/dakeXd00" target="_blank" title="https://twitter.com/dakeXd00">Twitter</a> <a href="https://dakexd.itch.io" target="_blank" title="https://dakexd.itch.io">itch.io</a></p>
+        <div id="buttons">
+            <input type="submit" name="tutoriales" value="Tutoriales" class="initButton" onclick="activateElement('tutorial')">
+            <input type="submit" name="juegos" value="Juegos" class="initButton" onclick="activateElement('juegos')">
+            <input type="submit" name="registro" value="Registro" class="initButton" onclick="activateElement('registro')">
+        </div>
+    </div>
+    <div id="tutorial" style="display:none;">
+        <hr>
+        <h2>Tutorial básico de HTML</h2>
+        <p>Cuenta con los elementos HTML usados para crear esta página. <a href="html.html" title="Tutorial HTML">Tutorial</a></p>
+    </div>
+    <div id="juegos" style="display:none;">
+        <hr>
+        <h2>Juegos en javascript</h2>
         <ul>
-            <li>Creación de la página</li>
-            <li>Creación del tutorial HTML con todos los elementos usados</li>
-            <li>Agregados juegos javascript realizados en el pasado</li>
+            <li>
+                <a href= "games/ElJuegoDeLaVida/JuegoDeLaVida.html">El juego de la vida</a>
+            </li>
+            <li>
+                <a href= "games/Arkanoid/Arkanoid.html">Arkanoid</a>
+            </li>
         </ul>
-    </ul>
+        <h2>Juegos en itch.io</h2>
+        <table class="imageTable">
+            <tr>
+                <td>
+                    <a href= "https://dakexd.itch.io/noodletaker" target="_blank" ><img src="images/noodletaker.png" class="itchioImage"></a>
+                </td>
+                <td>
+                    <a href= "https://miniponti.itch.io/un-famous" target="_blank"><img src="images/unfamous.png"  class="itchioImage"></a>
+                </td>
+                <td>
+                    <a href= "https://sirallanberg.itch.io/annoying-penguins" target="_blank"><img src = "images/penguin.png"  class="itchioImage"></a> 
+                </td>
+            </tr>
+            <tr>
+                <td>Noodletaker</td>
+                <td>Un-Famous</td>
+                <td>Annoting Penguins</td>
+            </tr>
+            <tr>
+                <td><b>-Fase beta-</b></td>
+                <td><b>-On hold-</b></td>
+                <td><b>-Terminado-</b></td>
+            </tr>
+        </table>            
+    </div>
+    <div id="registro" style="display:none;">
+        <hr>
+        <h2>Registro de actividad</h2>
+        <ul>
+            <li><b>29/07/2021</b>:</li>
+            <ul>
+                <li>Creación de la página</li>
+                <li>Creación del tutorial HTML con todos los elementos usados</li>
+                <li>Agregados juegos javascript realizados en el pasado</li>
+            </ul>
+            <li><b>30/07/2021</b></li>
+            <ul>
+                <li>Agregado CSS básicos a todas las páginas</li>
+                <li>Agregada funcionalidad de navegación por botones a la pagina principal mediante JS</li>
+                <li>Agregados juegos de itch.io</li>
+            </ul>
+        </ul>
+    </div>
 </body>
 </html>

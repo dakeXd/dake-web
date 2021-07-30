@@ -1,0 +1,78 @@
+body {
+    background-color: rgb(2, 0, 20);
+    color: #149414;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+b {
+    color: #9ccc9c;
+}
+
+h1{
+    color: #76d476;
+    text-align: center;
+    text-decoration-line: underline;
+}
+
+h2{
+    color: #649568;
+}
+
+.descripcion {
+    text-align: center;
+}
+
+/* unvisited link */
+a:link {
+    color: yellowgreen;
+}
+
+/* visited link */
+a:visited {
+    color: rgb(39, 95, 2);
+}
+
+/* mouse over link */
+a:hover {
+    color: #9ccc9c;
+}
+
+/* selected link */
+a:active {
+    color: whitesmoke;
+}
+
+.initButton{
+    background-color:chartreuse;
+    font-size:14px;
+    padding: 4px 42px;
+    border-radius: 8px;
+    border: 2px solid #9ccc9c;
+}
+
+.initButton:hover{
+    background-color:#9ccc9c;
+}
+
+.initButton:active{
+    background-color:aliceblue;
+}
+.itchioImage{
+    border: 2px solid rgb(39, 95, 2);
+    border-radius: 20px;
+    vertical-align: text-bottom;
+}
+
+.imageTable{
+    margin-left: auto;
+    margin-right: auto;
+    text-align:center;
+    border-spacing: 50px 5px;
+}
+.itchioImage:hover{
+    filter: invert(0.4);
+    background-color: rgb(102.4, 102.4, 102.4);
+    border: 2px solid white;
+}
+
+
