@@ -8,6 +8,10 @@ b {
     color: #9ccc9c;
 }
 
+i{
+    color:chartreuse
+}
+
 h1{
     color: #76d476;
     text-align: center;
@@ -16,6 +20,32 @@ h1{
 
 h2{
     color: #649568;
+}
+
+h3{
+    color: #4f7752;
+}
+
+h4{
+    color: #326d37;
+}
+
+.codebg{
+    background-color: rgba(32, 40, 49, 0.63);
+    display: table;
+}
+.code{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:darkcyan;
+    font-weight: bold;
+}
+
+.answer{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:darkcyan;
+    font-weight: bold;
+    background-color: rgba(185, 34, 34, 0.63);
+    display: block;
 }
 
 .descripcion {

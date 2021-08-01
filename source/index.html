@@ -8,7 +8,7 @@
     <script src="js/indexJS.js"></script>
     <title>Dake Web</title>
 </head>
-<body>
+<body onload="activateElement('python')">
     <h1>Dake web</h1>
     <div id="descripcion" class="descripcion">
         <p>Pagina web creada desde 0 por Manuel Abarca Crespo</p>
@@ -76,7 +76,85 @@
                 <li>Agregada funcionalidad de navegación por botones a la pagina principal mediante JS</li>
                 <li>Agregados juegos de itch.io</li>
             </ul>
+            <li><b>31/07/2021</b></li>
+            <ul>
+                <li>Iniciado el camino en Python</li>
+            </ul>
         </ul>
+    </div>
+    <div id="python">
+        <hr>
+        <h2>Mi camino en Python</h2>
+        <p>Despues de aorender multitud de lenguajes, como <b>java</b>, <b>c++</b>, <b>c</b>, <b>c#</b>, <b>javascript</b>... He decidido aprender un lenguaje muy comun que se usa para multitud de tareas y que nunca habia usado, <b>Python</b></p>
+        <p>En esta sección ire comentando las ideas principales que encuentre, los elementos, como usarlos y mis ideas al respecto</p>
+        <h3>Introducción a Python</h3>
+        <p>Para empezar, parece que <b>Python</b> es un lenguaje interpretado de alto nivel orientado a objetos, ademas de ser <i>open source</i>. El lenguaje utiliza un interprete que va leyendo las lineas una a una de arriba hacia abajo. <br>Tenemos que instalar el lenguaje desde la <a href="https://www.python.org/">página oficial de python</a> y tener un editor de codigo por otra parte. Yo usare el que me han recomendado, <a href="https://www.jetbrains.com/pycharm/">PyCharm</a>.</p>
+        <h4>Hola Mundo</h4>
+        <p>Crear un nuevo es bastante intuitivo, una vez abierto nuestro IDE de desarrollo simplemente se hace click en nuevo proyecto, le damos nombre y listo. Dentro de este podemos crear un nuevo archivo (con terminacion <i>.py</i>) y dentro escribiremos nuestro codigo, en este caso: <b class="code">print("Hello World")</b>.<br> Dandole a run y a ejecutar el archivo, el texto sale por pantalla. Me parece curioso el hecho de que no haga falta una función main ni el uso de semicomas, la verdad.<br>
+        A diferencia de otros lenguajes no parce haber diferencia entre el uso de '' y de "", ambos sirven para identificar un <b>string</b>. Ademas, si multiplicamos un string por un entero, este string se repetira:<br>
+        <b class="code">print("*" * 10)</b> imprimira <b class="code">**********</b><br>
+        Esto se debe a que es una expresion, un trozo de codigo que genera un valor. En este caso esta definido el comportamiento de generar un string equivalente a repetir el string inicial n veces, y el resultado se usa para el <b>print</b>. <br>
+        </p>
+        <h4>Variables</h4>
+        <p>
+            Las variables sirven para almacenar datos temporalmente. Podemos usar una variable como si estuviesemos usando el valor que contiene. Cada variable tiene un identificador y un valor que almacena. En <b>python</b> no hace falta indicar el tipo de dato que almacenara la variable (<i>Por lo que es debilmente tipado</i>):<br>
+            <div class="codebg">
+                <b class="code">precio = 10</b><br>
+                <b class="code">print(precio)</b><br><br>
+                <b class="answer">10</b>
+            </div> <br>
+            Hemos creado una variable llamada precio que puede almacenar un valor, en este caso un entero con valor 10. Al imprimir esta variable, se mostrara en la consola el valor almacenado, es decir, el número 10.<br>
+            Existen multiples tipos de datos que podemos almacenar: enteros, valores flotantes, strings, booleans... Es importante remarcar que para asignar un valor booleano usaremos <b>True</b> o <b>False</b>: <b class="code">is_alive = True</b> <br>
+            El nombre de las variables va en minuscula y si esta compuesto por varias palabras se usa una barrabaja "<i>_</i>" para separarlas.<br>
+        </p>
+        <h4>Entrada por parte del usuario</h4>
+        <p>
+            Recogeremos la entrada del usuario con la función <b>input()</b>. Acepta como parametro de entrada un string que se mostrara al usuario a la hora de pedir la entrada. Devuelve como valor la entrada que haya recibido.<br>
+            <div class="codebg">
+                <b class="code">nombre = input("Introduce tu nombre ")</b><br>
+                <b class="code">print("Hola " + nombre)</b><br><br>
+                <b class="answer">Introduce tu nombre <i>Manuel</i></b>
+                <b class="answer">Hola Manuel</b>
+            </div><br>
+            El programa le preguntara el nombre al usuario, lo almacenara en la variable <b>nombre</b> y luego concatenara el string <i>"Hola "</i> con el nombre para mostrar ambos en la salida.<br>
+            La entrada siempre se interpreta como un string. Para hacer <b>casteos</b>, es decir, pasar de un tipo de dato a otro, podemos usar funciones que se llaman igual que el tipo de dato al que queremos convertir, <br>
+            es decir, para pasar de un string a un entero usaremos <b class="code">int(some_string)</b>. Existen tambien las funciones <b>float()</b>, <b>str()</b> y <b>bool()</b>.<br>
+            <br>
+            <div class="codebg">
+                <b class="code">birth_year=input("Introduce tu fecha de nacimiento ")</b><br>
+                <b class="code">age = 2021 - int(birth_year)</b><br>
+                <b class="code">print("Tienes " + str(age) + " años")</b><br><br>
+                <b class="answer">Introduce tu fecha de nacimiento <i>2000</i></b>
+                <b class="answer">Tienes 21 años</b>
+            </div><br>
+            Podemos saber el tipo de una variable con la funcion <i>type()</i>. Si usasemos <b class="code">type(birth_year)</b> en el codigo anterior obtendriamos <b class="code">&lt;class 'str'></class></b>
+        </p>
+        <h4>Strings</h4>
+        <p>
+            Como hemos visto podemos definir strings tanto con comillas normales <i>'</i> como dobles <i>"</i>. Esto es util si queremos que nuestro string contenga dentro de el una de ellas<br>
+            (por ejemplo, si queremos un string que contenga comillas dobles podemos usar comillas simples para que no ocurran errores). Existe un tercer tipo en python que son las comillas triples <i>'''</i>. <br>
+            Estas comillas sirven para interpretar literalmente todo lo que haya en su interior, ya sean saltos de linea, espacios en blanco, comillas...<br><br>
+            Como en cualquier sitio, un string es un array de caracteres. Podemos obtener el caracter en una posicion en especifico usando los corchetes y una posicion <i>[0]</i>. EL resultado sera otro string de un solo caracter<br>
+            <div class="codebg">
+                <b class="code">nombre="Roberto"</b><br>
+                <b class="code">print(nombre[0])</b><br><br>
+                <b class="answer">R</b>
+            </div><br>
+            Hay que recordar que la primera posicion de un array siempre es la 0. Podemos usar un indice negativo para acceder a las posiciones por el fianl del array, de esta manera <i>-1</i> es la ultima posición.
+            <div class="codebg">
+                <b class="code">nombre="Roberto"</b><br>
+                <b class="code">print(nombre[-2])</b><br><br>
+                <b class="answer">t</b>
+            </div><br>
+            Podemos obtener todos los elementos dentro de un rango haciendo uso de los dos puntos, por ejemplo <i>[0:3]</i> Nos devolveria todos los elementos del 0 al 3, sin incluir el 3.<br>
+            <div class="codebg">
+                <b class="code">nombre="Roberto"</b><br>
+                <b class="code">print(nombre[1:4])</b><br><br>
+                <b class="answer">obe</b>
+            </div><br>
+            De esta manera un rango <i>[0:-1]</i> nos devolveria todos los elementos de un array. Si no especificamos un valor en un lado del rango, se asignara automaticamente 0 para la izquierda y -1 para la derecha (asique <i>[:]</i> devolveria tambien el array entero)<br>
+            <!--https://youtu.be/_uQrJ0TkZlc?t=2281-->
+        </p>
     </div>
 </body>
 </html>
