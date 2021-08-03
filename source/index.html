@@ -14,16 +14,21 @@
         <p>Pagina web creada desde 0 por Manuel Abarca Crespo</p>
         <p>Links a mi <a href="https://github.com/dakeXd" target="_blank" title="https://github.com/dakeXd">Github</a> <a href="https://twitter.com/dakeXd00" target="_blank" title="https://twitter.com/dakeXd00">Twitter</a> <a href="https://dakexd.itch.io" target="_blank" title="https://dakexd.itch.io">itch.io</a></p>
         <div id="buttons">
-            <input type="submit" name="tutoriales" value="Tutoriales" class="initButton" onclick="activateElement('tutorial')">
+            <input type="submit" name="guias" value="Guias" class="initButton" onclick="activateElement('guias')">
             <input type="submit" name="juegos" value="Juegos" class="initButton" onclick="activateElement('juegos')">
+            <input type="submit" name="sobre_mi" value="Sobre mi" class="initButton" onclick="activateElement('sobre_mi')">
             <input type="submit" name="registro" value="Registro" class="initButton" onclick="activateElement('registro')">
         </div>
     </div>
-    <div id="tutorial" style="display:none;">
+
+    <div id="guias" style="display:none;">
         <hr>
         <h2>Tutorial básico de HTML</h2>
         <p>Cuenta con los elementos HTML usados para crear esta página. <a href="html.html" title="Tutorial HTML">Tutorial</a></p>
+        <h2>Mi camino en Python</h2>
+        <p>Las cosas que voy aprendiendo de este nuevo lenguaje para mi. <a href="" onclick="activateElement('python')">Mi camino</a></p>
     </div>
+
     <div id="juegos" style="display:none;">
         <hr>
         <h2>Juegos en javascript</h2>
@@ -60,6 +65,40 @@
             </tr>
         </table>            
     </div>
+
+    <div id="sobre_mi" style="display:none;">
+        <hr>
+        <img src = "images/yo.jpg" id="retrato" alt="mi foto">
+        <div id="bio">
+            <p>
+                Mi nombre es <b>Manuel Abarca Crespo</b>, soy estudiante de <b>Diseño y Desarrollo de videojuegos</b> y actualmente estoy cursando cuarto de carrera.<br>
+                Mi especialización es la programación, conozco la mayoria de lenguajes principales (<i>Java, C, C++, Python, C#, Javascript</i>) y dedico mi tiempo libre a aprender mas sobre ellos y algunos de sus usos especificos, sobre todo en el diseño de videojuegos.
+            </p>
+            <p>
+                Tambien me dedico a dar clases particulares de programación, habiendo ayudado a mas de 20 alumnos actualmente. No es mi pasión en la vida, pero me ha ayudado a desarrollar habilidades de comprensión, paciencia y ayuda.
+                Otro de mis grandes intereses es la Inteligencia Artificial, sobre la que estoy planeando hacer mi <b>TFG</b> y con la que ya he danzado los primeros compases en la universidad. Actualmente me encuentro aprendiendo diseño web para tener un conocimiento general sobre el, 
+                y para practicar he creado esta página web desde 0, solo con HTML, CSS y Javascript.
+            </p>
+            <h3>Mis datos de contacto</h3>
+            <p>Puedes contactar conmigo de multiples maneras:</p>
+            <div id ="bioDesc">
+                <ul>
+                <table style="text-align: left; margin-left: auto; margin-right: auto;" >
+                    <tr>
+                    <td> <li><b>Gmail:</b></td><td> abarcacrespom@gmail.com</li></td>
+                    </tr>
+                    <tr>
+                        <td><li><b>Twitter:</b></td> <td>@dakeXd00</li></td>
+                    </tr>
+                    <tr>
+                        <td><li><b>Discord:</b></td> <td>dakeXd#0174</li></td>
+                    </tr>
+                </table>
+                </ul>
+            </div>
+        </div>
+    </div>
+
     <div id="registro" style="display:none;">
         <hr>
         <h2>Registro de actividad</h2>
@@ -80,81 +119,903 @@
             <ul>
                 <li>Iniciado el camino en Python</li>
             </ul>
+            <li><b>02/08/2021</b></li>
+            <ul>
+                <li>Actualizado el camino en Python</li>
+                <li>Implementado con JS sistema para mostras las secciones de un artículo</li>
+            </ul>
+            <li><b>03/08/2021</b></li>
+            <ul>
+                <li>Agregada sección "Sobre Mi"</li>
+                <li>Finalizado mi camino en Python</li>
+            </ul>
         </ul>
     </div>
     <div id="python">
         <hr>
         <h2>Mi camino en Python</h2>
-        <p>Despues de aorender multitud de lenguajes, como <b>java</b>, <b>c++</b>, <b>c</b>, <b>c#</b>, <b>javascript</b>... He decidido aprender un lenguaje muy comun que se usa para multitud de tareas y que nunca habia usado, <b>Python</b></p>
+        <p>Despues de aprender multitud de lenguajes, como <b>java</b>, <b>c++</b>, <b>c</b>, <b>c#</b>, <b>javascript</b>... He decidido aprender un lenguaje muy comun que se usa para multitud de tareas y que nunca habia usado, <b>Python</b></p>
         <p>En esta sección ire comentando las ideas principales que encuentre, los elementos, como usarlos y mis ideas al respecto</p>
         <h3>Introducción a Python</h3>
         <p>Para empezar, parece que <b>Python</b> es un lenguaje interpretado de alto nivel orientado a objetos, ademas de ser <i>open source</i>. El lenguaje utiliza un interprete que va leyendo las lineas una a una de arriba hacia abajo. <br>Tenemos que instalar el lenguaje desde la <a href="https://www.python.org/">página oficial de python</a> y tener un editor de codigo por otra parte. Yo usare el que me han recomendado, <a href="https://www.jetbrains.com/pycharm/">PyCharm</a>.</p>
-        <h4>Hola Mundo</h4>
-        <p>Crear un nuevo es bastante intuitivo, una vez abierto nuestro IDE de desarrollo simplemente se hace click en nuevo proyecto, le damos nombre y listo. Dentro de este podemos crear un nuevo archivo (con terminacion <i>.py</i>) y dentro escribiremos nuestro codigo, en este caso: <b class="code">print("Hello World")</b>.<br> Dandole a run y a ejecutar el archivo, el texto sale por pantalla. Me parece curioso el hecho de que no haga falta una función main ni el uso de semicomas, la verdad.<br>
-        A diferencia de otros lenguajes no parce haber diferencia entre el uso de '' y de "", ambos sirven para identificar un <b>string</b>. Ademas, si multiplicamos un string por un entero, este string se repetira:<br>
-        <b class="code">print("*" * 10)</b> imprimira <b class="code">**********</b><br>
-        Esto se debe a que es una expresion, un trozo de codigo que genera un valor. En este caso esta definido el comportamiento de generar un string equivalente a repetir el string inicial n veces, y el resultado se usa para el <b>print</b>. <br>
-        </p>
-        <h4>Variables</h4>
-        <p>
-            Las variables sirven para almacenar datos temporalmente. Podemos usar una variable como si estuviesemos usando el valor que contiene. Cada variable tiene un identificador y un valor que almacena. En <b>python</b> no hace falta indicar el tipo de dato que almacenara la variable (<i>Por lo que es debilmente tipado</i>):<br>
+        <hr>
+        <img src="images/python.png", style="width:10%; height: auto; margin-left: auto; margin-right: auto;  display: block;">
+        <h4 class="activation" onclick="showSomething('holaMundo')">Hola Mundo</h4>
+        <div id="holaMundo" style="display:none;">
+            <hr>
+            <p>Crear un nuevo es bastante intuitivo, una vez abierto nuestro IDE de desarrollo simplemente se hace click en nuevo proyecto, le damos nombre y listo. Dentro de este podemos crear un nuevo archivo (con terminacion <i>.py</i>) y dentro escribiremos nuestro codigo, en este caso: <b class="code">print("Hello World")</b>.<br> Dandole a run y a ejecutar el archivo, el texto sale por pantalla. Me parece curioso el hecho de que no haga falta una función main ni el uso de semicomas, la verdad.<br>
+            A diferencia de otros lenguajes no parce haber diferencia entre el uso de '' y de "", ambos sirven para identificar un <b>string</b>. Ademas, si multiplicamos un string por un entero, este string se repetira:<br>
+            <b class="code">print("*" * 10)</b> imprimira <b class="code">**********</b><br>
+            Esto se debe a que es una expresion, un trozo de codigo que genera un valor. En este caso esta definido el comportamiento de generar un string equivalente a repetir el string inicial n veces, y el resultado se usa para el <b>print</b>. <br>
+            </p>
+            <h5 class="close" onclick="showSomething('holaMundo')">Cerrar</h5>
+            <hr>
+        </div>
+
+        <h4 class="activation" onclick="showSomething('variables')">Variables</h4>
+        <div id="variables" style="display:none;">
+            <hr>
+            <p>
+                Las variables sirven para almacenar datos temporalmente. Podemos usar una variable como si estuviesemos usando el valor que contiene. Cada variable tiene un identificador y un valor que almacena. En <b>python</b> no hace falta indicar el tipo de dato que almacenara la variable (<i>Por lo que es debilmente tipado</i>):<br>
+                <div class="codebg">
+                    <b class="code">precio = 10</b><br>
+                    <b class="code">print(precio)</b><br><br>
+                    <b class="answer">10</b>
+                </div> <br>
+                Hemos creado una variable llamada precio que puede almacenar un valor, en este caso un entero con valor 10. Al imprimir esta variable, se mostrara en la consola el valor almacenado, es decir, el número 10.<br>
+                Existen multiples tipos de datos que podemos almacenar: enteros, valores flotantes, strings, booleans... Es importante remarcar que para asignar un valor booleano usaremos <b>True</b> o <b>False</b>: <b class="code">is_alive = True</b> <br>
+                El nombre de las variables va en minuscula y si esta compuesto por varias palabras se usa una barrabaja "<i>_</i>" para separarlas.<br>
+            </p>
+            <h5 class="close" onclick="showSomething('variables')">Cerrar</h5>
+            <hr>
+        </div>
+
+            <h4 class="activation" onclick="showSomething('input')">Entrada por parte del usuario</h4>
+            <div id="input" style="display:none;">
+            <hr>
+            <p>
+                Recogeremos la entrada del usuario con la función <b>input()</b>. Acepta como parametro de entrada un string que se mostrara al usuario a la hora de pedir la entrada. Devuelve como valor la entrada que haya recibido.<br>
+                <div class="codebg">
+                    <b class="code">nombre = input("Introduce tu nombre ")</b><br>
+                    <b class="code">print("Hola " + nombre)</b><br><br>
+                    <b class="answer">Introduce tu nombre <i>Manuel</i></b>
+                    <b class="answer">Hola Manuel</b>
+                </div><br>
+                El programa le preguntara el nombre al usuario, lo almacenara en la variable <b>nombre</b> y luego concatenara el string <i>"Hola "</i> con el nombre para mostrar ambos en la salida.<br>
+                La entrada siempre se interpreta como un string. Para hacer <b>casteos</b>, es decir, pasar de un tipo de dato a otro, podemos usar funciones que se llaman igual que el tipo de dato al que queremos convertir, <br>
+                es decir, para pasar de un string a un entero usaremos <b class="code">int(some_string)</b>. Existen tambien las funciones <b>float()</b>, <b>str()</b> y <b>bool()</b>.<br>
+                <br>
+                <div class="codebg">
+                    <b class="code">birth_year=input("Introduce tu fecha de nacimiento ")</b><br>
+                    <b class="code">age = 2021 - int(birth_year)</b><br>
+                    <b class="code">print("Tienes " + str(age) + " años")</b><br><br>
+                    <b class="answer">Introduce tu fecha de nacimiento <i>2000</i></b>
+                    <b class="answer">Tienes 21 años</b>
+                </div><br>
+                Podemos saber el tipo de una variable con la funcion <i>type()</i>. Si usasemos <b class="code">type(birth_year)</b> en el codigo anterior obtendriamos <b class="code">&lt;class 'str'></class></b>
+            </p>
+            <h5 class="close" onclick="showSomething('input')">Cerrar</h5>
+            <hr>
+        </div>
+
+        <h4 class="activation" onclick="showSomething('strings')">Strings</h4>
+        <div id="strings" style="display:none;">
+            <hr>
+            <p>
+                Como hemos visto podemos definir strings tanto con comillas normales <i>'</i> como dobles <i>"</i>. Esto es util si queremos que nuestro string contenga dentro de el una de ellas<br>
+                (por ejemplo, si queremos un string que contenga comillas dobles podemos usar comillas simples para que no ocurran errores). Existe un tercer tipo en python que son las comillas triples <i>'''</i>. <br>
+                Estas comillas sirven para interpretar literalmente todo lo que haya en su interior, ya sean saltos de linea, espacios en blanco, comillas...<br><br>
+                Como en cualquier sitio, un string es un array de caracteres. Podemos obtener el caracter en una posicion en especifico usando los corchetes y una posicion <i>[0]</i>. EL resultado sera otro string de un solo caracter<br>
+                <div class="codebg">
+                    <b class="code">nombre="Roberto"</b><br>
+                    <b class="code">print(nombre[0])</b><br><br>
+                    <b class="answer">R</b>
+                </div><br>
+                Hay que recordar que la primera posicion de un array siempre es la 0. Podemos usar un indice negativo para acceder a las posiciones por el fianl del array, de esta manera <i>-1</i> es la ultima posición.
+                <div class="codebg">
+                    <b class="code">nombre="Roberto"</b><br>
+                    <b class="code">print(nombre[-2])</b><br><br>
+                    <b class="answer">t</b>
+                </div><br>
+                Podemos obtener todos los elementos dentro de un rango haciendo uso de los dos puntos, por ejemplo <i>[0:3]</i> Nos devolveria todos los elementos del 0 al 3, sin incluir el 3.<br>
+                <div class="codebg">
+                    <b class="code">nombre="Roberto"</b><br>
+                    <b class="code">print(nombre[1:4])</b><br><br>
+                    <b class="answer">obe</b>
+                </div><br>
+                De esta manera un rango <i>[0:-1]</i> nos devolveria todos los elementos de un array. Si no especificamos un valor en un lado del rango, se asignara automaticamente 0 para la izquierda y -1 para la derecha (asique <i>[:]</i> devolveria tambien el array entero)<br>
+                Recordar que con el operando de concatenacion, <i>+</i> entre dos strings, obtendremos como salida un tercer string correspondiente a la concatenación de los originales en orden. Podemos concatenar literales y variables. Podemos hacer esto mismo con strings con formato: <br>
+                <div class="codebg">
+                    <b class="code">nombre="Roberto"</b><br>
+                    <b class="code">ocupacion="bombero"</b><br>
+                    <b class="code">texto=f"{nombre} [{ocupacion}]"</b><br>
+                    <b class="code">print(texto)</b><br><br>
+                    <b class="answer">Roberto [bombero]</b>
+                </div><br>
+                Como se puede ver, usamos una <b>f</b> antes de las comillas para indicar que el literal a continuación tiene formato, dentro del string podemos usar llaves <i>{}</i> que indicaran que lo que hay dentro es el nombre de una variable y se sustituira por el valor contenida en ella al usar el string. Ademas, al no estar haciendo una concatenacion, podemos poner numeros y valores booleanos sin necesidad de castearlos a <i>str</i><br>
+                Existen multitud de funciones que podemos usar con los strings, por ejemplo:
+                
+                    <ul>
+                        <li>
+                            <b>len()</b>:<br>
+                            Acepta como parametro un array (es decir, tambien un string) y nos devuelve su longitud:<br>
+                            <div class="codebg">
+                                <b class="code">nombre="Roberto"</b><br>
+                                <b class="code">longitud = len(nombre)</b><br>
+                                <b class="code">print(longitud)</b><br><br>
+                                <b class="answer">7</b>
+                            </div><br>
+                        </li><br>
+                        <li>
+                            <b>in</b>: <br>
+                            <b>in</b> no es una funcion, es una expresion, funciona como un operando (como el <i>+</i> por ejemplo). Comprueba que el elemento a la izquierda este en el array de la derecha y devuelve verdadero si lo encuentra o falso si no (<i>True</i>/<i>False</i>).
+                            <div class="codebg">
+                                <b class="code">nombre="Roberto"</b><br>
+                                <b class="code">print("ober" in nombre)</b><br><br>
+                                <b class="answer">True</b>
+                            </div><br>
+                        </li>
+                    </ul>
+                    Si usamos el operador punto <i>.</i> podemos acceder a todas las funciones <b>especificas</b> de strings, conocidas como metodos:
+                    <ul>
+                        <li>
+                            <b>.upper()</b>:<br>
+                            Devuelve una copia del string con todos los caracteres convertidos a mayusculas (el string original se modifica):<br>
+                            <div class="codebg">
+                                <b class="code">nombre="Roberto"</b><br>
+                                <b class="code">print(nombre.upper())</b><br><br>
+                                <b class="answer">ROBERTO</b>
+                            </div><br>
+                            Existe el metodo <b>.lower()</b> que hace lo mismo pero convirtiendo los caracteres a minusculas.<br>
+                            A parte, existe el metodo <b>.title()</b> que hace lo mismo tambien, pero convirtiendo la primera letra de cada palabra a mayúscula y el resto a minúsculas.
+                        </li>
+                        <br>
+                        <li>
+                            <b>.find(substring)</b>:<br>
+                            Devuelve la primera posicion donde aparece el substring indicado dentro del string. Si no existe, devuelve -1:<br>
+                            <div class="codebg">
+                                <b class="code">nombre="Roberto"</b><br>
+                                <b class="code">print(nombre.find(R))</b><br><br>
+                                <b class="answer">0</b>
+                            </div><br>
+                            Si se usa con un substring de más de un caracter, se mostrara la posición del primero de ellos.
+                        </li>
+                        <br>
+                        <li>
+                        <b>.replace(substring, new_substring)</b>:<br>
+                            Devuelve una copia del string donde la primera aparicion de <i>substring</i> se sustituye por <i>new_substring</i>:<br>
+                            <div class="codebg">
+                                <b class="code">nombre="Roberto"</b><br>
+                                <b class="code">print(nombre.replace("to", "to es listo"))</b><br><br>
+                                <b class="answer">Roberto es listo</b>
+                            </div><br>
+                            Si no se encuentra el substring, no se realizara ningun cambio.
+                        </li>
+                        <li>
+                            <b>.split(substring)</b>:<br>
+                                Divide el string en un array de subelementos separandolos por <i>substring</i><br>
+                                <div class="codebg">
+                                    <b class="code">nombre="Roberto"</b><br>
+                                    <b class="code">print(nombre.split("o"))</b><br><br>
+                                    <b class="answer">['R', 'bert', '']</b>
+                                </div><br>
+                            </li>
+                        <br>
+                        
+                    </ul>
+            </p>
+            <h5 class="close" onclick="showSomething('strings')">Cerrar</h5>
+            <hr>
+        </div>
+
+        <h4 class="activation" onclick="showSomething('aritmeticas')">Operaciones Aritméticas</h4>
+        <div id="aritmeticas" style="display:none;">
+            <hr>
+            <p>
+            Tenemos dos tipos de datos aritméticos, los enteros (<i>integers</i>) que son números sin decimales y los valores en coma flotantes (<i>floating point numbers</i> o <i>floats</i>), que son números con decimales. Recordar que la parte decimal se separa de la entera con un punto (<i>3.1416</i>).<br>
+            Para trabajar con ellos contamos con diversos operandos que nos permiten realizar operaciones aritméticas con ellos:
+            <ul>
+                <li>
+                    <b>+</b>: suma (<b class="code">10 + 4 = 10</b>).
+                </li>
+                <li>
+                    <b>-</b>: resta (<b class="code">10 - 4 = 6</b>).
+                </li>
+                <li>
+                    <b>*</b>: multiplicación (<b class="code">10 * 4 = 40</b>).
+                </li>
+                <li>
+                    <b>/</b>: división decimal(<b class="code">10 / 4 = 2.5</b>). 
+                </li>
+                <li>
+                    <b>//</b>: división entera(<b class="code">10 // 4 = 2</b>). 
+                </li>
+                <li>
+                    <b>%</b>: modulo (o resto) de la división(<b class="code">10 % 4 = 2</b>). 
+                </li>
+                <li>
+                    <b>**</b>: exponente(<b class="code">10 ** 4 = 10000</b>). 
+                </li>
+                <li>
+                    podemos usar el operador <i>=</i> despues del operador aritmético para asignar automaticamente el resultado a una variable:
+                    <div class="codebg">
+                        <b class="code">number=10</b><br>
+                        <b class="code">number+=10</b><br>
+                        <b class="code">print(number)</b><br><br>
+                        <b class="answer">20</b>
+                    </div><br>
+                    <b class="code">number+=10</b> es equivalente a <b class="code">number = number + 10</b>.
+                </li>
+            </ul>
+            Hay que tener en cuenta que las operaciones siguen el orden matemático, asique por ejemplo en <b class="code">number = 10 + 4 * 3</b> el resultado es 22, ya que se resuelve primero la multiplicación y luego la suma. (<i>parentesis > exponente > multiplicación = división > suma = resta</i>)
+            </p>
+            <h5 class="close" onclick="showSomething('aritmeticas')">Cerrar</h5>
+            <hr>
+        </div>
+        
+        <h4 class="activation" onclick="showSomething('funcMath')">Funciones Matemáticas</h4>
+        <div id="funcMath" style="display:none;">
+            <hr>
+            <p>
+                Existen multitud de funciones que podemos aplicar a los datos aritméticos, algunos ejemplos son:
+                <ul>
+                    <li>
+                        <b>round(number)</b>:<br>
+                        Acepta como parametro un número decimal y devuelve el número redondeado a la unidad mas cercana (en caso de .5 redondea hacia abajo)<br>
+                        <div class="codebg">
+                            <b class="code">num=15.9</b><br>
+                            <b class="code">print(round(num))</b><br><br>
+                            <b class="answer">16</b>
+                        </div><br>
+                    </li><br>
+                    <li>
+                        <b>abs(number)</b>:<br>
+                        Acepta como parametro un número y devuelve el valor absoluto de ese número (es decir, el número con signo positivo)<br>
+                        <div class="codebg">
+                            <b class="code">num=-12</b><br>
+                            <b class="code">print(abs(num))</b><br><br>
+                            <b class="answer">12</b>
+                        </div><br>
+                    </li><br>
+                </ul>
+                Para el uso de más funciones matemáticas, tendremos que importar la libreria <b>math</b>. Para importarla simplemente tendremos que escribir <b class="code">import math</b> al principio de nuestro codigo, importando el modulo y creando un objeto math sobre el que podemos usar funciones con el operando punto (<i>.</i>).<br>
+                Algunas de las funciones incluidas en esta libreria son: 
+                <ul>
+                    <li><b>ceil(number)</b>: Redondea hacia arriba <i>number</i></li>
+                    <li><b>floor(number)</b>: Redondea hacia abajo <i>number</i></li>
+                    <li>Para conocer más funciones de la libreria <b>math</b> y saber como funcionan podemos a ir a la <a href="https://docs.python.org/3/library/math.html" title="https://docs.python.org/3/library/math.html">documentación oficial</a></li>
+                </ul>
+            </p>
+            <h5 class="close" onclick="showSomething('funcMath')">Cerrar</h5>
+            <hr>
+        </div>
+
+        <h4 class="activation" onclick="showSomething('selection')">Estructuras de selección</h4>
+        <div id="selection" style="display:none;">
+            <hr>
+            <p>
+                <ul>
+                    <li>
+                        <h5><b>IF</b></h5><br>
+                        Evalua una condición (expresion que devuelva <i>True</i> o <i>False</i>) y si el valor es <i>True</i> ejecuta un codigo definido. Si es <i>false lo ignorara</i>.<br>
+                        La sintaxis es <b>if condicion:</b>. El codigo definido seran todas las lineas que esten tabuladas al menos una vez a continuacion, hasta llegar a una que no lo este: <br>
+                        <div class="codebg">
+                            <b class="code">num=12</b><br>
+                            <b class="code">if num>11:</b><br>
+                            <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;print("Mayor de 11")</b><br>
+                            <b class="code">print("adios")</b><br><br>
+                            <b class="answer">Mayor de 11</b>
+                            <b class="answer">adios</b>
+                        </div><br>
+
+                        <div class="codebg">
+                            <b class="code">num=10</b><br>
+                            <b class="code">if num>11:</b><br>
+                            <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;print("Mayor de 11")</b><br>
+                            <b class="code">print("adios")</b><br><br>
+                            <b class="answer">adios</b>
+                        </div><br>
+                    </li>
+                    <li>
+                        <h5><b>ELSE</b></h5><br>
+                        Se situa despues de un <b>if</b>. Si (y solo si) no se cumple la condición del <b>if</b>, se ejecutaran las lineas definidas por el <b>else</b>:
+                        <div class="codebg">
+                            <b class="code">num=10</b><br>
+                            <b class="code">if num>11:</b><br>
+                            <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;print("Mayor de 11")</b><br>
+                            <b class="code">else:</b><br>
+                            <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;print("Menor de 11")</b><br>
+                            <b class="code">print("adios")</b><br><br>
+                            <b class="answer">Menor de 11</b>
+                            <b class="answer">adios</b>
+                        </div><br>
+                    </li>
+                    <li>
+                        <h5><b>ELIF</b></h5><br>
+                        Abreviatura de else if. Se situa despues de un <b>if</b>. Si (y solo si) no se cumple la condición del <b>if</b>, se ejecutaran un segundo if, que ejecutara las lineas definidas a continuación de el si se cumple la condición de este:
+                        <div class="codebg">
+                            <b class="code">num=18</b><br>
+                            <b class="code">if num>=21:</b><br>
+                            <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;print("Puede beber y conducir")</b><br>
+                            <b class="code">elif num>=18:</b><br>
+                            <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;print("Puede conducir")</b><br>
+                            <b class="code">else:</b><br>
+                            <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;print("Menor de edad")</b><br>
+                            <b class="code">print("adios")</b><br><br>
+                            <b class="answer">Puede conducir</b>
+                            <b class="answer">adios</b>
+                        </div><br>
+                    </li>
+                </ul>
+                Se puede ver que la sintaxis es muy distinta a la convencional en otros lenguajes. A demas, me he dado cuenta de que las variables no tienen contexto de estructura. Si definimos una variable dentro de un <b>if</b> esa variable pasara a existir fuera de el.
+            </p>
+            <h5 class="close" onclick="showSomething('selection')">Cerrar</h5>
+            <hr>
+        </div>
+
+        <h4 class="activation" onclick="showSomething('logicalOP')">Operadores Lógicos</h4>
+        <div id="logicalOP" style="display:none;">
+            <hr>
+            <p>
+                Estos operadores nos permiten operar con valores booleanos, es decir, con <i>True</i> y <i>False</i>, o expresiones que devuelvan un valor de este tipo. Existen los siguientes:
+                <ul>
+                    <li>
+                        <b>AND</b>:<br>
+                        Evalua dos booleanos y devuelve <i>True</i> si ambos booleanos evaluados tienen valor <i>True</i>. En cualquier otro caso devuelve <i>False</i>.
+                        <div class="codebg">
+                            <b class="code">edad=18</b><br>
+                            <b class="code">nacionalidad = True</b><br>
+                            <b class="code">if edad>=11 and nacionalidad:</b><br>
+                            <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;print("Puede votar")</b><br>
+                            <b class="code">else:</b><br>
+                            <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;print("No puede votar")</b><br><br>
+                            <b class="answer">Puede votar</b>
+                        </div><br>
+                    </li>
+                    <li>
+                        <b>OR</b>:<br>
+                        Evalua dos booleanos y devuelve <i>True</i> si al menos uno de los booleanos evaluados tienen valor <i>True</i>. En cualquier de que ambos sean <i>False</i>, devolvera <i>False</i>.
+                        <div class="codebg">
+                            <b class="code">edad=14</b><br>
+                            <b class="code">extranjero = False</b><br>
+                            <b class="code">if edad>=14 or extranjero:</b><br>
+                            <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;print("Necesita documento de identificacion")</b><br>
+                            <b class="code">else:</b><br>
+                            <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;print("No necesita identificacion")</b><br><br>
+                            <b class="answer">Necesita documento de identificacion</b>
+                        </div><br>
+                    </li>
+                    <li>
+                        <b>NOT</b>:<br>
+                        Evalua un unico booleano y devuelve <i>True</i> si tiene valor <i>False</i>. En caso contrario devuelve <i>False</i>.
+                        <div class="codebg">
+                            <b class="code">edad=13</b><br>
+                            <b class="code">nacionalidad = False</b><br>
+                            <b class="code">if edad>=14 or not nacionalidad:</b><br>
+                            <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;print("Necesita documento de identificacion")</b><br>
+                            <b class="code">else:</b><br>
+                            <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;print("No necesita identificacion")</b><br><br>
+                            <b class="answer">Necesita documento de identificacion</b>
+                        </div><br>
+                    </li>
+                </ul>
+            </p>
+            <h5 class="close" onclick="showSomething('logicalOP')">Cerrar</h5>
+            <hr>
+        </div>
+
+        <h4 class="activation" onclick="showSomething('compareOP')">Operadores de Comparación</h4>
+        <div id="compareOP" style="display:none;">
+            <hr>
+            <p>
+                Estos operadores nos permiten comparar valores, generalmente numericos (pero pueden ser de multiples tipos) y devolver un valor booleano. Los hemos estado usando hasta ahora, pero aqui mostrare todos:
+                <ul>
+                    <li><b>&lt;</b>: Menor que (<b class="code">3 &lt; 4 = True</b>).</li>
+                    <li><b>></b>: Mayor que (<b class="code">3 > 4 = False</b>).</li>
+                    <li><b>==</b>: Igual que (<b class="code">3 == 4 = False</b>).</li>
+                    <li><b>!=</b>: Distinto de (<b class="code">3 != 4 = True</b>).</li>
+                    <li><b>&lt;=</b>: Menor o igual que (<b class="code">3 &lt;= 3 = True</b>).</li>
+                    <li><b>>=</b>: Mayor o igual que (<b class="code">3 >= 3 = True</b>).</li>
+                </ul>
+            </p>
+            <h5 class="close" onclick="showSomething('compareOP')">Cerrar</h5>
+            <hr>
+        </div>
+
+        <h4 class="activation" onclick="showSomething('loops')">Bucles</h4>
+        <div id="loops" style="display:none;">
+            <hr>
+            <p>
+                Los bucles, o <i>loops</i>, nos permiten ejecutar un conjunto de instrucciones multiples veces.
+                <ul>
+                    <li>
+                        <h5><b>WHILE</b></h5>
+                        Su sintaxis es <b class = "code">while condition:</b> Mientras <i>condition</i> tenga valor <i>True</i>, el conjunto de lineas del while se repetiran. Al terminar la ultima linea, se volvera a comprobar <i>condition</i> para repetir el bucle o seguir por el codigo.
+                        <div class="codebg">
+                            <b class="code">num=1</b><br>
+                            <b class="code">while num &lt; 10:</b><br>
+                            <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;num+=1</b><br>
+                            <b class="code">print(num)</b><br><br>
+                            <b class="answer">10</b>
+                        </div><br>
+                        Hay que tener cuidado con los bucles infinitos, comprobad que vuestra condicion se pueda cumplir dentro del cuerpo del while.
+                    </li>
+                    <li>
+                        <h5><b>FOR</b></h5>
+                        Es un tipo especial de bucle que nos permite iterar sobre elementos de una colleción, como un array o un string. Basicamente es lo mismo que un <b>foreach</b> en otros lenguajes.<br>
+                        Su estructura es: <b class="code">for item in collection:</b> donde <i>item</i> es una variable que almacenara el elemento de la colleción sobre la que iteramos y <i>collection</i> es la colleción sobre la que iterar.
+                        <div class="codebg">
+                            <b class="code">for item in "Hola":</b><br>
+                            <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;print(item)</b><br><br>
+                            <b class="answer">H</b>
+                            <b class="answer">o</b>
+                            <b class="answer">l</b>
+                            <b class="answer">a</b>
+                        </div><br>
+                        Podemos usar la funcion <b>range(inicio, fin, paso)</b> para obtener una colección de números que van desde <i>inicio</i> hasta <i>fin</i> avanzando de <i>paso</i> en <i>paso</i>. Podemos excluir paso, siendo su valor por defecto 1, y inicio, siendo su valor por defecto 0.
+                        <div class="codebg">
+                            <b class="code">for item in range(1, 7, 2):</b><br>
+                            <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;print(item)</b><br><br>
+                            <b class="answer">1</b>
+                            <b class="answer">3</b>
+                            <b class="answer">5</b>
+                        </div><br>
+                        Podemos definir a mano una colección usando <b>[item1, item2, item3...]</b>.
+                    </li>
+                    <li>
+                        <h5><b>BREAK</b></h5>
+                        Si usamos la expresion <b class="code">break</b> en cualquier punto de un bucle, el programa saldra del bucle directamente.<br>
+                        Los bucles pueden tener una sentencia <b>else:</b> despues de su bloque de codigo, el cual se ejecutara al finalizar el bucle siempre y cuando no se haya usado un <b>break</b> para finalizarlo.
+                    </li>
+                    <li>
+                        <h5><b>BREAK</b></h5>
+                        Si usamos la expresion <b class="code">break</b> en cualquier punto de un bucle, el programa saldra del bucle directamente.<br>
+                        Los bucles pueden tener una sentencia <b>else:</b> despues de su bloque de codigo, el cual se ejecutara al finalizar el bucle siempre y cuando no se haya usado un <b>break</b> para finalizarlo.
+                    </li>
+                    <li>
+                        <h5><b>BUCLES ANIDADOS</b></h5>
+                        Podemos insertar un bucle dentro de otro bucle, de tal forma que el bucle interior se ejecute completamente por cada iteración del bucle superior.<br>
+                        Podemos usar esto, por ejemplo, para recorrer un sistema de coordenadas: 
+                        <div class="codebg">
+                            <b class="code">for x in range(3):</b><br>
+                            <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;for y in range (2):</b><br>
+                            <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(f"({x} , {y})")</b><br><br>
+                            <b class="answer">(0 , 0)</b>
+                            <b class="answer">(0 , 1)</b>
+                            <b class="answer">(1 , 0)</b>
+                            <b class="answer">(1 , 1)</b>
+                            <b class="answer">(2 , 0)</b>
+                            <b class="answer">(2 , 1)</b>
+                        </div><br>
+                    </li>
+                </ul>
+            </p>
+            <h5 class="close" onclick="showSomething('loops')">Cerrar</h5>
+            <hr>
+        </div>
+
+        <h4 class="activation" onclick="showSomething('lists')">Listas</h4>
+        <div id="lists" style="display:none;">
+            <hr>
+            <p>
+                Como ya hemos visto, podemos definir una lista a mano usando <i>[]</i> y poniendo elementos en su interior separados por comas <i>[5, 2, 5, 2, 2]</i>. Si hacemos print de esto se mostrara literalmente la lista, con corchetes y comas.<br>
+                Como con los strings, podemos usar los corchetes para acceder a un elemento en concreto <i>lista[indx]</i>, o usar un rango para devolver un subarray <i>lista[inicio:fin]</i>, ademas de poder usar las funcions <b>len()</b> y el operando <b>in</b>.<br>
+                Los elementos de una lista no tienen porque ser todos del mismo tipo, podemos tener strings y enteros en una misma lista.
+                <div class="codebg">
+                    <b class="code">lista = ["Fruta", "Verdura", "Carne", "Bolleria"]</b><br>
+                    <b class="code">print(lista[1:3])</b><br>
+                    <b class="code">print(len(lista))</b><br><br>
+                    <b class="answer">['Verdura', 'Carne']</b>
+                    <b class="answer">4</b>
+                </div><br>
+                Podemos definir listas multidimensionales usando listas de listas, es decir, una lista que contenga otra lista en su interior. Para definir una a mano podriamos usar <b class="code">matriz = [[1,2,3],[4,5,6],[7,8,9]]</b>.<br>
+                Notese que si accedemos a un elemento de matriz como <b>matriz[1]</b> estaremos accediendo a una lista, no a un número. Para acceder a un número directamente tendremos que usar corchetes dos veces <b>matriz[1][2]</b><br>
+                Para acceder a todos los elementos de una lista multidimensional, usaremos bucles anidados: <br>
+                <div class="codebg">
+                    <b class="code">matriz = [[1,2,3],[4,5,6],[7,8,9]]</b><br>
+                    <b class="code">for x in matriz:</b><br>
+                    <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;for element in matriz:</b><br>
+                    <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(element)</b><br><br>
+                    <b class="answer">1</b>
+                    <b class="answer">2</b>
+                    <b class="answer">3</b>
+                    <b class="answer">4...</b>
+                </div><br>
+                Las listas tambien cuentan con multiples funciones que podemos utilizar:
+                <ul>
+                    <li>
+                        <b>append(element)</b>:<br>
+                        Agrega <i>element</i> al final de la lista:
+                        <div class="codebg">
+                            <b class="code">lista = ["Fruta", "Verdura", "Carne", "Bolleria"]</b><br>
+                            <b class="code">lista.append("Agua")</b><br>
+                            <b class="code">print(lista)</b><br><br>
+                            <b class="answer">['Fruta', 'Verdura', 'Carne', 'Bolleria', 'Agua']</b>
+                        </div><br>
+                    </li>
+                    <li>
+                        <b>insert(index, element)</b>:<br>
+                        Agrega <i>element</i> en la posicion <i>index</i> de la lista: 
+                        <div class="codebg">
+                            <b class="code">lista = ["Fruta", "Verdura", "Carne", "Bolleria"]</b><br>
+                            <b class="code">lista.insert(1, "Agua")</b><br>
+                            <b class="code">print(lista)</b><br><br>
+                            <b class="answer">['Fruta', 'Agua', 'Verdura', 'Carne', 'Bolleria']</b>
+                        </div><br>
+                    </li>
+                    <li>
+                        <b>remove(element)</b>:<br>
+                        Elimina la primera aparicion de <i>element</i> en la lista: 
+                        <div class="codebg">
+                            <b class="code">lista = ["Fruta", "Verdura", "Carne", "Bolleria", "Fruta"]</b><br>
+                            <b class="code">lista.remove("Fruta")</b><br>
+                            <b class="code">print(lista)</b><br><br>
+                            <b class="answer">['Agua', 'Verdura', 'Carne', 'Bolleria', 'Fruta']</b>
+                        </div><br>
+                        Si <i>element</i> no existe dara un error.
+                    </li>
+                    <li>
+                        <b>clear()</b>:<br>
+                        Elimina todos los elementos de la lista: 
+                        <div class="codebg">
+                            <b class="code">lista = ["Fruta", "Verdura", "Carne", "Bolleria"]</b><br>
+                            <b class="code">lista.clear()</b><br>
+                            <b class="code">print(lista)</b><br><br>
+                            <b class="answer">[]</b>
+                        </div><br>
+                    </li>
+                    <li>
+                        <b>pop()</b>:<br>
+                        Elimina el ultimo elemento de la lista: 
+                        <div class="codebg">
+                            <b class="code">lista = ["Fruta", "Verdura", "Carne", "Bolleria"]</b><br>
+                            <b class="code">lista.pop()</b><br>
+                            <b class="code">print(lista)</b><br><br>
+                            <b class="answer">['Agua', 'Verdura', 'Carne', 'Bolleria']</b>
+                        </div><br>
+                    </li>
+                    <li>
+                        <b>index(element)</b>:<br>
+                        Devuelve la posicion de la primera aparicion de <i>element</i> en la lista: 
+                        <div class="codebg">
+                            <b class="code">lista = ["Fruta", "Verdura", "Carne", "Bolleria"]</b><br>
+                            <b class="code">print(lista.index("Fruta"))</b><br><br>
+                            <b class="answer">0</b>
+                        </div><br>
+                        Si no existe, dara un error.
+                    </li>
+                    <li>
+                        <b>count(element)</b>:<br>
+                        Devuelve el número de apariciones de <i>element</i> en la lista: 
+                        <div class="codebg">
+                            <b class="code">lista = ["Fruta", "Verdura", "Carne", "Bolleria", "Fruta"]</b><br>
+                            <b class="code">print(lista.count("Fruta"))</b><br><br>
+                            <b class="answer">2</b>
+                        </div><br>
+                    </li>
+                    <li>
+                        <b>sort()</b>:<br>
+                        Ordena la lista en orden ascendente:
+                        <div class="codebg">
+                            <b class="code">lista = ["Fruta", "Verdura", "Carne", "Bolleria"]</b><br>
+                            <b class="code">lista.sort()</b><br>
+                            <b class="code">print(lista)</b><br><br>
+                            <b class="answer">['Bolleria', 'Carne', 'Fruta', 'Verdura']</b>
+                        </div><br>
+                    </li>
+                    <li>
+                        <b>reverse()</b>:<br>
+                        Invierte el orden de la lista:
+                        <div class="codebg">
+                            <b class="code">lista = ["Fruta", "Verdura", "Carne", "Bolleria"]</b><br>
+                            <b class="code">lista.reverse()</b><br>
+                            <b class="code">print(lista)</b><br><br>
+                            <b class="answer">['Bolleria', 'Carne', 'Verdura', 'Fruta']</b>
+                        </div><br>
+                        Podemos ordenar una lista en orden descendente haciendo <b class="code">lista.sort()</b> y despues <b class="code">lista.reverse()</b><br>
+                    </li>
+                    <li>
+                        <b>copy()</b>:<br>
+                        Devuelve una copia de la lista:
+                        <div class="codebg">
+                            <b class="code">lista = ["Fruta", "Verdura", "Carne", "Bolleria"]</b><br>
+                            <b class="code">lista2 = lista.copy()</b><br>
+                            <b class="code">print(lista2)</b><br><br>
+                            <b class="answer">["Fruta", "Verdura", "Carne", "Bolleria"]</b>
+                        </div><br>
+                    </li>
+                </ul>
+                <b>UNPACKING</b><br>
+                Podemos asignar los valores de una lista directamente a variables individuales de la siguiente manera: <br>
+                <div class="codebg">
+                    <b class="code">lista = ["Fruta", "Verdura", "Carne"]</b><br>
+                    <b class="code">a, b, c = lista</b><br>
+                    <b class="code">print(a + " " + b + " " + c)</b><br><br>
+                    <b class="answer">Fruta Verdura Carne</b>
+                </div><br>
+                Si no hay el mismo número de variables que de elementos en la lista dara un error.
+            </p>
+            <h5 class="close" onclick="showSomething('lists')">Cerrar</h5>
+            <hr>
+        </div>  
+        
+        <h4 class="activation" onclick="showSomething('tuples')">Tuplas</h4>
+        <div id="tuples" style="display:none;">
+            <hr>
+            <p>
+                Las tuplas son un tipo de listas inmutables, es decir, una vez creadas no se pueden añadir, modificar o eliminar elementos.<br>
+                Se definen igual que una lista, pero usando parentesis en vez de corchetes. Solo cuentan con los metodos <b>.count()</b> y <b>.index()</b>
+                <div class="codebg">
+                    <b class="code">lista = ("Fruta", "Verdura", "Carne", "Bolleria")</b><br>
+                    <b class="code">print(lista[0])</b><br>
+                    <b class="code">lista[0] = "Madera"</b><br><br>
+                    <b class="answer">Fruta</b>
+                    <b class="answer" style="color: red;">TypeError: 'tuple' object does not support item assignment</b>
+                </div><br>
+                Para devolver una tupla en un <b>return</b> no se ponen parentesis, si no que se separan los elementos con coma simplemente.
+            </p>
+            <h5 class="close" onclick="showSomething('tuples')">Cerrar</h5>
+            <hr>
+        </div>
+
+        <h4 class="activation" onclick="showSomething('dict')">Diccionarios</h4>
+        <div id="dict" style="display:none;">
+            <hr>
+            <p>
+                Los diccionarios son una estructura de datos especial que nos permiten almacenar valores asignados a una <i>key</i> o clave. Para definirlos usaremos <i>{key1:value1, key2:value2,...}</i>.<br>
+                Las claves no pueden estar repetidas. Los valores <b>no</b> tienen porque ser todos del mismo tipo. Para aceder a los elementos del diccionario usaremos <b>dictionary[key]</b>.
+                <div class="codebg">
+                    <b class="code">diccionario={"zamora": 60000, 1: 12, "madrid": "3 millones", 3: "catorce"}</b><br>
+                    <b class="code">print(f"{diccionario[1]}  {diccionario['zamora']}")</b><br><br>
+                    <b class="answer">12  60000</b>
+                </div><br>
+                Si intentamos acceder a un elemento con una clave que no exista nos dara error. Podemos usar <b>diccionario.get(key)</b> en vez de usar <b>[key]</b> para que si no existe la clave, nos devuelva <b>None</b> en vez de dar error.<br>
+                A la funcion <b>get</b> le podemos introducir un segundo parametro que sera el valor devuelto por defecto en caso de que la clave no exista:<br>
+                <div class="codebg">
+                    <b class="code">diccionario={"zamora": 60000, 1: 12, "madrid": "3 millones", 3: "catorce"}</b><br>
+                    <b class="code">print(diccionario.get("Barcelona", "No encontrado"))</b><br><br>
+                    <b class="answer">No encontrado</b>
+                </div><br>
+                Para añadir nuevos elementos simplemente indicaremos la nueva clave entre corchetes <i>[]</i> y le daremos un valor.
+                <div class="codebg">
+                    <b class="code">diccionario={"zamora": 60000, 1: 12, "madrid": "3 millones", 3: "catorce"}</b><br>
+                    <b class="code">diccionario["Barcelona"] = "2 millones"</b><br>
+                    <b class="code">print(diccionario.get("Barcelona", "No encontrado"))</b><br><br>
+                    <b class="answer">2 millones</b>
+                </div><br>
+            </p>
+            <h5 class="close" onclick="showSomething('dict')">Cerrar</h5>
+            <hr>
+        </div>
+
+        <h4 class="activation" onclick="showSomething('funciones')">Funciones</h4>
+        <div id="funciones" style="display:none;">
+            <hr>
+            <p>
+                Las funciones son metodos que almacenan multiples lineas de codigo para ejecutar que nos permiten realizar una tarea en específico. Las hemos estado utilizando hasta ahora, por ejemplo <b>print()</b> es una función.<br>
+                Para definir una función usaremos la palabra reservada <b>def</b> seguida del nombre de la funcion, los parametros de entrada entre parentesis <i>()</i> y dobles puntos. A continuación, tabulado, escribiremos el bloque de codigo que ejecutara la función. Es una buena práctica dejar dos lineas en blanco despues del bloque de código.<br>
+                <div class="codebg">
+                    <b class="code">def say_hi():</b><br>
+                    <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;print("hi")</b><br>
+                    <b class="code"></b><br><br>
+                    <b class="code">say_hi()</b><br><br>
+                    <b class="answer">hi</b>
+                </div><br>
+                Podemos definir parámetros de entrada dandoles un nombre entre los parentesis de la función. Esta nueva variable tomara el valor del argumento que introduzcamos en la misma posición al llamar a la función (parámetros -> variables definidas en la cabezera de la función ; argumentos -> valor que le damos a estos parámetros al llamar a la función):<br>
+                <div class="codebg">
+                    <b class="code">def say_hi(name):</b><br>
+                    <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;print("Hi " + name)</b><br>
+                    <b class="code"></b><br><br>
+                    <b class="code">say_hi("Manuel")</b><br><br>
+                    <b class="answer">Hi Manuel</b>
+                </div><br>
+                Una función dara error si no se introducen todos los parametros necesarios para su llamada.<br>
+                Podemos definir los argumentos en orden distinto al definido en la función usando <i>keyword arguments</i>. Al llamar a la función asignaremos explicitamente cada parámetro a un argumento.
+                <div class="codebg">
+                    <b class="code">def say_hi(first_name, last_name):</b><br>
+                    <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;print("Hi " + first_name + " " + last_name)</b><br>
+                    <b class="code"></b><br><br>
+                    <b class="code">say_hi(last_name="Abarca", first_name="Manuel")</b><br><br>
+                    <b class="answer">Hi Manuel Abarca</b>
+                </div><br>
+                Podemos usar <i>keyword arguments</i> despues de los argumentos normales (o posicionales), pero nunca podemos usarlos antes.<br>
+                Podemos usar la palabra reservada <b>return <i>value</i></b> para devolver un valor desde la función. La ejecución de la función se parara en el <b>return</b>.
+                <div class="codebg">
+                    <b class="code">def square(base):</b><br>
+                    <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;return base * base</b><br>
+                    <b class="code"></b><br><br>
+                    <b class="code">print(square(4))</b><br><br>
+                    <b class="answer">16</b>
+                </div><br>
+                Una función siempre se puede interpretar como un tipo de dato del valor que devuelve. El valor devuelto por defecto es <i>None</i> (equivalente a <i>null</i> en otros lenguajes).<br>
+                Como regla general, intentad evitar el uso de entradas y salidas por pantalla dentro de las funciones (Hacen el código no reusable).
+            </p>
+            <h5 class="close" onclick="showSomething('funciones')">Cerrar</h5>
+            <hr>
+        </div>
+        
+        <h4 class="activation" onclick="showSomething('errores')">Errores</h4>
+        <div id="errores" style="display:none;">
+            <hr>
+            <p>
+                Cuando nuestro código provoca un error no controlado, el programa crashea y la ejecución de este termina con codigo de salida <b>1</b>.<br>
+                Podemos controlar los errores y permitir la continuación del programa si el error se da en el bloque de codigo de un <b>try</b> que haga <b>except</b> del tipo de error dado:<br>
+                <div class="codebg">
+                    <b class="code">try:</b><br>
+                    <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;print(int(input("> ")))</b><br>
+                    <b class="code">except ValueError:</b><br>
+                    <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;print(square("Invalid Number"))</b><br><br>
+                    <b class="answer">> <i>Hola</i></b>
+                    <b class="answer">Invalid Number</b>
+                </div><br>  
+                Podemos poner tantos bloques de <b>except</b> como sean necesarios seguidos.
+            </p>
+            <h5 class="close" onclick="showSomething('errores')">Cerrar</h5>
+            <hr>
+        </div>
+
+        <h4 class="activation" onclick="showSomething('comentarios')">Comentarios</h4>
+        <div id="comentarios" style="display:none;">
+            <hr>
+            <p>
+                Para indicar que una linea es un comentario que no se deberá tener en cuenta a la hora de ejecutar el codigo, debemos indicar una almohadilla <i>#</i> al principio de la linea.
+                <div class="codebg">
+                    <b class="code" style="color:silver">#print("hola")</b><br>
+                    <b class="code">print("adios")</b><br><br>
+                    <b class="answer">adios</b>
+                </div><br>  
+                Podemos indicar una linea vacia explicitamente con la palabra reservada <v>pass</v>.
+            </p>
+            <h5 class="close" onclick="showSomething('comentarios')">Cerrar</h5>
+            <hr>
+        </div>
+
+        <h4 class="activation" onclick="showSomething('clases')">Clases</h4>
+        <div id="clases" style="display:none;">
+            <hr>
+            <p>
+                Las clases son un tipo de dato especial que nos permite estructurar datos de manera compleja modelando conceptos del mundo real. Por ejemplo, podriamos modelar el concepto de un punto en un espacio tridimensional, creando la clase <b>Punto</b>, la cual contendría tres valores flotantes que simbolizasen las coordenas en x, y y z. Tambien podremos crear metodos personalizados para estas clases<br>
+                Para definir una clase usaremos la palabra clave <b>class</b>, seguido del nombre de la clase (que por convenio su primera letra y la primera de cada palabra que lo forme es mayuscula y el resto minusculas, no se usa <i>_</i>) y puntos dobles. En el bloque de codigo a continuación se introduciran todas las variables y metodos.<br>
+                Una vez definida la clase podemos crear objetos o instancias de esa clase, que son objetos que siguen el modelo de datos de la clase, que dan valores a sus variables y con los que podemos trabajar. Para crear un nuevo objeto usaremos el nombre de la clase seguido por parentesis <i>()</i><br>
+                Podemos asignar, crear y acceder las variables de las clases usando el operador <i>.</i><br>
+                <div class="codebg">
+                    <b class="code">class Point:</b><br>
+                    <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;def distance(self):</b><br>
+                    <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("Calculating distance"):</b><br><br><br>
+                    <b class="code">point1 = Point()</b><br>
+                    <b class="code">point1.x = 10</b><br>
+                    <b class="code">print(point1.x)</b><br>
+                    <b class="code">point1.distance()</b><br><br>
+                    <b class="answer">10</b>
+                    <b class="answer">Calculating distance</b>
+                </div><br>  
+                Para poder inicializar variables dentro de una clase y asegurar que todas las instancias de una misma clase tengan los mismos atributos, tenemos que usar <b>constructores</b>. Los constructores se llaman al inicializarse una instancia de la clase y permiten definir y dar valor a las variables iniciales.<br>
+                Los constructores son funciones, por lo que pueden tomar parámetros de entrada que le serviran para iniciar los valores de las variables. Esta funcion se define como <b class="code">def __init__(self, <i>&lt;parámetros separados por comas></i>)</b>. Para definir variables pertenecientes a una clase usaremos dentro de ella <b class="code">self.nombre = valor</b>. (<b>self</b> es sinonimo de <b>this</b> en otros lenguajes, ademas, todas las funciones de una clase tienen como primer parametro <b>self</b> para poder referenciar al contexto de la misma).<br>
+                <div class="codebg">
+                    <b class="code">class Point:</b><br>
+                    <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, x, y):</b><br>
+                    <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.x = x</b><br>
+                    <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.y = y</b><br>
+                    <b class="code" style="color:silver">#Por convenio, una linea en blanco entre funciones.</b><br>
+                    <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;def distance(self):</b><br>
+                    <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("Calculating distance"):</b><br><br><br>
+                    <b class="code">point1 = Point(10, 20)</b><br>
+                    <b class="code">print(point1.x)</b><br>
+                    <b class="code">point1.distance()</b><br><br>
+                    <b class="answer">10</b>
+                    <b class="answer">Calculating distance</b>
+                </div><br>
+                <h5><b>HERENCIA</b></h5>
+                La herencia es un concepto que nos permite que una clase hereda las propiedades y atributos de otra, pudiendo agregar los suyos propios, de forma que no repitamos codigo y facilitando su modificación.<br>
+                Para indicar que una clase hereda de otra usaremos parentesis <i>()</i> despues del nombre de la clase y entre ellos indicaremos el nombre de la clase de la que queremos heredar.
+                <div class="codebg">
+                    <b class="code">class Mammal:</b><br>
+                    <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;def walk(self):</b><br>
+                    <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("walking")</b><br><br><br>
+                    <b class="code">class Human(Mammal):</b><br>
+                    <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;def talk(self):</b><br>
+                    <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("talking"):</b><br><br><br>
+                    <b class="code">me = Human()</b><br>
+                    <b class="code">me.talk()</b><br>
+                    <b class="code">me.walk()</b><br><br>
+                    <b class="answer">talking</b>
+                    <b class="answer">walking</b>
+                </div><br>
+            </p>
+            <h5 class="close" onclick="showSomething('clases')">Cerrar</h5>
+            <hr>
+        </div>
+
+        <h4 class="activation" onclick="showSomething('mods')">Modulos</h4>
+        <div id="mods" style="display:none;">
+            <hr>
+            <p>
+                Los modulos son archivos con codigo en Python escrito en ellos. Nos permiten organizar nuestro código en ficheros y mantenerlo ordenado en diferentes secciones. Cada archivo en el que se divide un codigo se conoce como modulo. Esto no solo hace el código más legible y organizado, si no que tambien le otorga mucha mas reusabilidad.<br>
+                Escribiremos los metodos y clases relacionados dentro del mismo modulo e importaremos estos entre los distintos archivos con <b>import <i>filePath</i></b>. Podemos cambiar el nombre con el que nos referimos a la libreria añadiendo <b class="code">as nombre</b> despues del import.<br>
+
+                <div class="codebg">
+                    <b class="code" style="color:silver">#converters.py</b><br>
+                    <b class="code">def lbs_to_kg(lbs):</b><br>
+                    <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;return lbs * 0.45</b><br><br><br>
+                    <b class="code">def kg_to_lbs(kg):</b><br>
+                    <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;return kg / 0.45</b><br>
+                </div><br>
+
+                <div class="codebg">
+                    <b class="code" style="color:silver">#app.py</b><br>
+                    <b class="code">import converters</b><br>
+                    <b class="code">print(converters.lbs_to_kg(70))</b><br><br>
+                    <b class="answer">31.5</b>
+                </div><br>
+
+                Tambien podemos importar metodos especificos de otro archivo con la palabra reservada <b>from</b>. Estos metodos podran ser llamados sin necesidad de hacer referencia al modulo que los contiene.<br>
+
+                <div class="codebg">
+                    <b class="code" style="color:silver">#app.py</b><br>
+                    <b class="code">from converters import lbs_to_kg</b><br>
+                    <b class="code">print(lbs_to_kg(70))</b><br><br>
+                    <b class="answer">31.5</b>
+                </div><br>
+                Podemos usar * para importar directamente todos los metodos, o importar varios metodos a la vez separandolos por comas.<br>
+                Para organizar los modulos, los podemos dividir en paquetes (0 <i>packages</i>). Estos paquetes contienen modulos de una misma temática y los mantienen organizados. Son equivalentes a una carpeta o directorio. <br>
+                Para que un directorio se considere un paquete, debe tener un archivo <i>__init__.py</i> en su interior. Para importar archivos de paquetes diferentes al actual, debemos hacer <b class="code">import Package.module</b>. Tambien podemos usar <b class="code">from Package import module</b> para no tener que escribir la dirección completa cada vez que se quiera utilizar un metodo.
+            </p>
+            <p>Podemos ver todos los modulos que Python trae por defecto <a href="https://docs.python.org/3/py-modindex.html" title="https://docs.python.org/3/py-modindex.html" target="_blank">aqui</a></p>. Estos modulos estan guardados en <i>External Libraries > Python 3.9 > Python 39 </i>. Un ejemplo de uso de estos modulos seria la libreria <b>random</b> para generar números aleatorios:<br>
             <div class="codebg">
-                <b class="code">precio = 10</b><br>
-                <b class="code">print(precio)</b><br><br>
-                <b class="answer">10</b>
-            </div> <br>
-            Hemos creado una variable llamada precio que puede almacenar un valor, en este caso un entero con valor 10. Al imprimir esta variable, se mostrara en la consola el valor almacenado, es decir, el número 10.<br>
-            Existen multiples tipos de datos que podemos almacenar: enteros, valores flotantes, strings, booleans... Es importante remarcar que para asignar un valor booleano usaremos <b>True</b> o <b>False</b>: <b class="code">is_alive = True</b> <br>
-            El nombre de las variables va en minuscula y si esta compuesto por varias palabras se usa una barrabaja "<i>_</i>" para separarlas.<br>
-        </p>
-        <h4>Entrada por parte del usuario</h4>
-        <p>
-            Recogeremos la entrada del usuario con la función <b>input()</b>. Acepta como parametro de entrada un string que se mostrara al usuario a la hora de pedir la entrada. Devuelve como valor la entrada que haya recibido.<br>
-            <div class="codebg">
-                <b class="code">nombre = input("Introduce tu nombre ")</b><br>
-                <b class="code">print("Hola " + nombre)</b><br><br>
-                <b class="answer">Introduce tu nombre <i>Manuel</i></b>
-                <b class="answer">Hola Manuel</b>
+                <b class="code">import random</b><br>
+                <b class="code" style="color:silver">#random.random() genera un número aleatorio entre 0 y 1</b><br>
+                <b class="code" style="color:silver">#random.randint(init, fin) genera un número entero aleatorio entre init y fin, ambos incluidos</b><br>
+                <b class="code" style="color:silver">#random.choice(list) devuelve un elemento aleatorio de la lista list</b><br>
+                <b class="code">print(random.randint(1,6))</b><br><br>
+                <b class="answer">4</b>
             </div><br>
-            El programa le preguntara el nombre al usuario, lo almacenara en la variable <b>nombre</b> y luego concatenara el string <i>"Hola "</i> con el nombre para mostrar ambos en la salida.<br>
-            La entrada siempre se interpreta como un string. Para hacer <b>casteos</b>, es decir, pasar de un tipo de dato a otro, podemos usar funciones que se llaman igual que el tipo de dato al que queremos convertir, <br>
-            es decir, para pasar de un string a un entero usaremos <b class="code">int(some_string)</b>. Existen tambien las funciones <b>float()</b>, <b>str()</b> y <b>bool()</b>.<br>
-            <br>
-            <div class="codebg">
-                <b class="code">birth_year=input("Introduce tu fecha de nacimiento ")</b><br>
-                <b class="code">age = 2021 - int(birth_year)</b><br>
-                <b class="code">print("Tienes " + str(age) + " años")</b><br><br>
-                <b class="answer">Introduce tu fecha de nacimiento <i>2000</i></b>
-                <b class="answer">Tienes 21 años</b>
-            </div><br>
-            Podemos saber el tipo de una variable con la funcion <i>type()</i>. Si usasemos <b class="code">type(birth_year)</b> en el codigo anterior obtendriamos <b class="code">&lt;class 'str'></class></b>
-        </p>
-        <h4>Strings</h4>
-        <p>
-            Como hemos visto podemos definir strings tanto con comillas normales <i>'</i> como dobles <i>"</i>. Esto es util si queremos que nuestro string contenga dentro de el una de ellas<br>
-            (por ejemplo, si queremos un string que contenga comillas dobles podemos usar comillas simples para que no ocurran errores). Existe un tercer tipo en python que son las comillas triples <i>'''</i>. <br>
-            Estas comillas sirven para interpretar literalmente todo lo que haya en su interior, ya sean saltos de linea, espacios en blanco, comillas...<br><br>
-            Como en cualquier sitio, un string es un array de caracteres. Podemos obtener el caracter en una posicion en especifico usando los corchetes y una posicion <i>[0]</i>. EL resultado sera otro string de un solo caracter<br>
-            <div class="codebg">
-                <b class="code">nombre="Roberto"</b><br>
-                <b class="code">print(nombre[0])</b><br><br>
-                <b class="answer">R</b>
-            </div><br>
-            Hay que recordar que la primera posicion de un array siempre es la 0. Podemos usar un indice negativo para acceder a las posiciones por el fianl del array, de esta manera <i>-1</i> es la ultima posición.
-            <div class="codebg">
-                <b class="code">nombre="Roberto"</b><br>
-                <b class="code">print(nombre[-2])</b><br><br>
-                <b class="answer">t</b>
-            </div><br>
-            Podemos obtener todos los elementos dentro de un rango haciendo uso de los dos puntos, por ejemplo <i>[0:3]</i> Nos devolveria todos los elementos del 0 al 3, sin incluir el 3.<br>
-            <div class="codebg">
-                <b class="code">nombre="Roberto"</b><br>
-                <b class="code">print(nombre[1:4])</b><br><br>
-                <b class="answer">obe</b>
-            </div><br>
-            De esta manera un rango <i>[0:-1]</i> nos devolveria todos los elementos de un array. Si no especificamos un valor en un lado del rango, se asignara automaticamente 0 para la izquierda y -1 para la derecha (asique <i>[:]</i> devolveria tambien el array entero)<br>
-            <!--https://youtu.be/_uQrJ0TkZlc?t=2281-->
-        </p>
+            </p>
+            <p>
+                Podemos descargar multitud de modulos adicionales a nuestros proyectos desde la web de <a href="https://pypi.org/" title="https://pypi.org/" target="_blank">PyPi</a><br>
+                Para instalar los modulos deberemos meter el comando que nos indique la página en la consola de PyCharm.
+            </p>
+            <h5 class="close" onclick="showSomething('mods')">Cerrar</h5>
+            <hr>
+        </div>
+
+        <h4 class="activation" onclick="showSomething('files')">Ficheros</h4>
+        <div id="files" style="display:none;">
+            <hr>
+            <p>
+                Con ficheros nos referimos a archivos y carpetas que existen en la memoria global de la máquina. Necesitaremos implementar la libreria <b><a href="https://docs.python.org/3/library/pathlib.html#module-pathlib", title="https://docs.python.org/3/library/pathlib.html#module-pathlib", target="_blank">pathlib</a></b> para trabajar con ellos.<br>
+                Su uso básico consiste en importar la clase <b>Path</b>, con la que trabajaremos, refereciendo un fichero o un directorio, ya sea con una ruta absoluta (<i>C:\Users\Usuario\PycharmProjects\helloWoeld\Utils</i>) o relativa, es decir, desde el directorio actual (<i>Utils</i>).<br>
+                Los objetos de esta clase tienen varios metodos: <br>
+                <ul>
+                    <li>
+                        <b>.exists()</b><br>
+                        Comprueba que el directorio exista. Devuelve <i>True</i> o <i>False</i>.
+                    </li>
+                    <li>
+                        <b>.mkdir()</b><br>
+                        Crea el directorio.
+                    </li>
+                    <li>
+                        <b>.rmdir()</b><br>
+                        Elimina el directorio
+                    </li>
+                    <li>
+                        <b>.glob(patron))</b><br>
+                        Busca en el directorio cualquier archivo o fichero con <i>patron</i> en su nombre. <b>'*'</b> es un caracter especial que indica cualquier texto de cualquier longitud, devolviendo todos los ficheros y archivos. Usando <b>*.*</b> obtendremos solo los archivos.<br>
+                        Devuelve un <i>generator object</i>, sobre el que se puede iterar. <br>
+                        <div class="codebg">
+                            <b class="code">from pathlib import Path</b><br><br>
+                            <b class="code">path = Path()</b><br>
+                            <b class="code">for file in path.glob('*'):</b><br>
+                            <b class="code">&nbsp;&nbsp;&nbsp;&nbsp;print(file)</b><br><br><br>
+                            <b class="answer">Aqui se mostrara el nombre de todos los archivos y directorios hijos del directorio del archivo</b>
+                        </div><br>
+                    </li>
+                </ul>
+            </p>
+            <h5 class="close" onclick="showSomething('files')">Cerrar</h5>
+            <hr>
+        </div>
     </div>
 </body>
 </html>
+ <!--https://youtu.be/_uQrJ0TkZlc?t=14303-->

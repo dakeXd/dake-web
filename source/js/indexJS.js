@@ -19,3 +19,14 @@ function activateElement(element){
     //console.log(activeElement);
     
 }
+
+function showSomething(element){
+    var tempElement = document.getElementById(element);
+    if(tempElement.style.display == "none"){
+        console.log("activando");
+        tempElement.style.display = "block";
+        return;
+    }
+    console.log("desactivando");
+    tempElement.style.display = "none";
+}

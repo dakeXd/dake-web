@@ -48,6 +48,36 @@ h4{
     display: block;
 }
 
+.activation{
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:rgb(185, 34, 34);
+    font-weight: bold;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.close{
+    text-align: right;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:rgb(185, 34, 34);
+    font-weight: bold;
+    display: table;
+    margin-right:5%;
+    margin-left:auto;
+}
+
+.activation:hover{
+    color:darkcyan;
+    cursor: pointer;
+}
+
+.close:hover{
+    color:darkcyan;
+    cursor: pointer;
+}
+
 .descripcion {
     text-align: center;
 }
@@ -103,6 +133,39 @@ a:active {
     filter: invert(0.4);
     background-color: rgb(102.4, 102.4, 102.4);
     border: 2px solid white;
+}
+
+#retrato{
+    display: block;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+    height: auto;
+    border: 2px solid chartreuse ;
+}
+
+#bio{
+    display: block;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: auto;
+    border: 2px solid chartreuse ;
+    text-align: center;
+}
+
+#bioDesc{
+    display: block;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    height: auto;
+    border: 2px solid rgb(11, 78, 17) ;
+    text-align: center;
+    background-color: rgba(46, 122, 58, 0.151);
 }
 
 
